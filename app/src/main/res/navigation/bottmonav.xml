@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottmonav"
+    app:startDestination="@id/fragmentHomePage">
+    <fragment
+        android:id="@+id/fragmentHomePage"
+        android:name="com.edu.edusystem.fragmentThree.FragmentHomePage"
+        android:label="fragment_home_page"
+        tools:layout="@layout/fragment_home_page" />
+    <fragment
+        android:id="@+id/fragmentStudy"
+        android:name="com.edu.edusystem.fragmentThree.FragmentStudy"
+        android:label="fragment_study"
+        tools:layout="@layout/fragment_study" />
+    <fragment
+        android:id="@+id/fragmentMe"
+        android:name="com.edu.edusystem.fragmentThree.FragmentMe"
+        android:label="fragment_me"
+        tools:layout="@layout/fragment_me" />
+</navigation>

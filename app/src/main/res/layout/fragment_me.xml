@@ -5,23 +5,40 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="#ffffff"
-    android:layout_marginBottom="100dp"
+    android:layout_marginBottom="450dp"
     tools:context=".fragmentThree.FragmentMe">
 
     <!-- TODO: Update blank fragment layout -->
 
-    <!--用户名-->
-    <TextView
-        android:id="@+id/me_username"
+    <!--登录-->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/me_selector"
+        android:clickable="true">
+        <com.edu.edusystem.dbtools.CircleImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:layout_gravity="center"
+            android:src="@drawable/user"
+            android:layout_marginLeft="10dp"
+            />
+
+    <TextView
+        android:id="@+id/me_username"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
         android:text="未登录"
         android:textSize="24sp"
         android:textColor="#000000"
         android:gravity="center"
-        android:layout_weight="2"
-        android:background="@drawable/me_selector"
-        android:clickable="true"/>
+        android:layout_weight="4"
+        />
+    </LinearLayout>
 
     <!--我的收藏-->
 
@@ -30,7 +47,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/me_selector"
         android:clickable="true">
         <ImageView
@@ -61,7 +78,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/me_selector"
         android:clickable="true">
         <ImageView
@@ -92,7 +109,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/me_selector"
         android:clickable="true">
         <ImageView
@@ -123,7 +140,7 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="10dp"
         android:background="@drawable/me_selector"
         android:clickable="true">
         <ImageView

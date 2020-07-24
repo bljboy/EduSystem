@@ -54,44 +54,44 @@ private  TextView me_username,me_favorite,me_feedback,me_followee,me_pvypcy;
         me_followee=getActivity().findViewById(R.id.me_followee);//关注的老师
         me_pvypcy=getActivity().findViewById(R.id.me_pvypcy);//隐私和政策
 
-        //user监听事件
-        me_username.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        //我的收藏监听事件
-        me_favorite.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        //用户反馈监听事件
-        me_feedback.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        //关注的老师监听事件
-        me_followee.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
-
-        //隐私与政策监听事件
-        me_pvypcy.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
+//        //user监听事件
+//        me_username.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
+//
+//        //我的收藏监听事件
+//        me_favorite.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
+//
+//        //用户反馈监听事件
+//        me_feedback.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
+//
+//        //关注的老师监听事件
+//        me_followee.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
+//
+//        //隐私与政策监听事件
+//        me_pvypcy.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//
+//            }
+//        });
     }
 }

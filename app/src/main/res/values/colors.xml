@@ -3,4 +3,8 @@
     <color name="colorPrimary">#4FC3F7</color>
     <color name="colorPrimaryDark">#03A9F4</color>
     <color name="colorAccent">#4FC3F7</color>
+
+    <!--My是未单击是的颜色，my是单击是的颜色-->
+    <color name="My">#ffffff</color>
+    <color name="my">#999999</color>
 </resources>

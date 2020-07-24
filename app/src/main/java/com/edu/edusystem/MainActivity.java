@@ -17,7 +17,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 
 /**
- * 这里的代码不要动哦
+ * 这里的代码不要动哦,动了就坏了。刚刚写的注释2020-07-24 11:00
  */
 
 public class MainActivity extends AppCompatActivity {

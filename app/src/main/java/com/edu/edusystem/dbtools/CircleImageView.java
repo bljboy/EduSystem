@@ -10,8 +10,7 @@ import android.graphics.Shader;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.util.AttributeSet;
-import android.widget.ImageView;
-
+//圆形image工具类
 public class CircleImageView extends androidx.appcompat.widget.AppCompatImageView {
     private Paint mPaint; //画笔
 

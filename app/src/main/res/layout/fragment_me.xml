@@ -12,6 +12,7 @@
 
     <!--登录-->
     <LinearLayout
+        android:id="@+id/me_user"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -29,7 +30,7 @@
             />
 
     <TextView
-        android:id="@+id/me_username"
+        android:id="@+id/user_tv"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:text="未登录"
@@ -44,6 +45,7 @@
 
 
     <LinearLayout
+        android:id="@+id/me_favorite"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -57,7 +59,6 @@
             android:src="@drawable/favorite"
             android:layout_weight="1"/>
     <TextView
-        android:id="@+id/me_favorite"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:gravity="center_vertical"
@@ -75,6 +76,7 @@
 
     <!--反馈-->
     <LinearLayout
+        android:id="@+id/me_feedback"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -88,7 +90,6 @@
             android:src="@drawable/feedback"
             android:layout_weight="1"/>
     <TextView
-        android:id="@+id/me_feedback"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:text="用户反馈"
@@ -106,6 +107,7 @@
 
     <!--关注的人-->
     <LinearLayout
+        android:id="@+id/me_followee"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -119,7 +121,6 @@
             android:src="@drawable/followee"
             android:layout_weight="1"/>
     <TextView
-        android:id="@+id/me_followee"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:text="关注的老师"
@@ -137,6 +138,7 @@
 
     <!--隐私与政策-->
     <LinearLayout
+        android:id="@+id/me_pvypcy"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
@@ -150,7 +152,6 @@
             android:src="@drawable/pvypcy"
             android:layout_weight="1"/>
     <TextView
-        android:id="@+id/me_pvypcy"
         android:layout_width="0dp"
         android:layout_height="match_parent"
         android:text="隐私和政策"

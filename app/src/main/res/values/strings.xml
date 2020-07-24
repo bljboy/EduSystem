@@ -3,4 +3,11 @@
     <string name="bottomnavigationview_menulist_homepage">首页</string>
     <string name="bottomnavigationview_menulist_study">学习</string>
     <string name="bottomnavigationview_menulist_me">我</string>
+    <string name="bottomnavigationview_homepage_title_syn">综合</string>
+    <string name="bottomnavigationview_homepage_title_class">课程</string>
+
+    <string-array name="bottomnavigationview__homepage_title">
+        <item>@string/bottomnavigationview_homepage_title_syn</item>
+        <item>@string/bottomnavigationview_homepage_title_class</item>
+    </string-array>
 </resources>

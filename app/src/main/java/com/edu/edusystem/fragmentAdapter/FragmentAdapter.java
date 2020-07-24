@@ -1,9 +1,13 @@
 package com.edu.edusystem.fragmentAdapter;
 
-import  androidx.annotation.NonNull;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
+
+import com.edu.edusystem.R;
+
 import java.util.ArrayList;
 
 /**
@@ -12,6 +16,7 @@ import java.util.ArrayList;
 
 public class FragmentAdapter extends FragmentPagerAdapter {
     private ArrayList<Fragment> fragList;
+    private String[] titles = {"综合","课程"};
 
     public FragmentAdapter(FragmentManager fm, ArrayList<Fragment> fragList) {
         super(fm);
@@ -26,6 +31,12 @@ public class FragmentAdapter extends FragmentPagerAdapter {
 
     @Override
     public int getCount() {
-        return fragList.size();
+        return 2;
+    }
+
+    @Nullable
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return titles[position];
     }
 }

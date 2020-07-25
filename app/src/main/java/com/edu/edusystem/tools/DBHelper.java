@@ -1,4 +1,4 @@
-package com.edu.edusystem.dbtools;
+package com.edu.edusystem.tools;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

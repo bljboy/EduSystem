@@ -1,5 +1,6 @@
 package com.edu.edusystem.fragmentThree;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -12,6 +13,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.edu.edusystem.R;
+import com.edu.edusystem.me.MeUserlogin;
 
 
 /**
@@ -59,7 +61,8 @@ private LinearLayout me_username,me_favorite,me_feedback,me_followee,me_pvypcy;
         me_username.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent it=new Intent(getActivity(), MeUserlogin.class);
+                startActivity(it);
             }
         });
 

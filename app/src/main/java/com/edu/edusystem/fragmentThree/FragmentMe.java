@@ -1,11 +1,14 @@
 package com.edu.edusystem.fragmentThree;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +16,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.edu.edusystem.R;
+import com.edu.edusystem.dbtools.DBHelper;
 import com.edu.edusystem.me.MeUserlogin;
 
 
@@ -24,15 +28,20 @@ import com.edu.edusystem.me.MeUserlogin;
 
 public class FragmentMe extends Fragment {
 
-private LinearLayout me_username,me_favorite,me_feedback,me_followee,me_pvypcy;
-/**
- * 定义
- * user
- * 我的收藏
- * 用户反馈
- * 关注的老师
- * 隐私和政策
-**/
+    private LinearLayout me_username,me_favorite,me_feedback,me_followee,me_pvypcy;
+    /**
+     * 定义
+    * 注册登录按钮
+    * 我的收藏
+     * 用户反馈
+    * 关注的老师
+    * 隐私和政策
+    **/
+    private Boolean whecher;//使用boolean判断
+    private SharedPreferences sharedPreferences;//是否登录
+    private TextView me_logtv;
+    private DBHelper dbHelper;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -49,20 +58,38 @@ private LinearLayout me_username,me_favorite,me_feedback,me_followee,me_pvypcy;
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-//        TextView textView = getActivity().findViewById(R.id.te);
-//        textView.setText("sssssssssssssssss");
+        dbHelper=new DBHelper();
+        Log.i("数据库连接","sssssssssssssssss");
         me_username=getActivity().findViewById(R.id.me_user);//user
         me_favorite=getActivity().findViewById(R.id.me_favorite);//我的收藏
         me_feedback=getActivity().findViewById(R.id.me_feedback);//用户反馈
         me_followee=getActivity().findViewById(R.id.me_followee);//关注的老师
         me_pvypcy=getActivity().findViewById(R.id.me_pvypcy);//隐私和政策
+        me_logtv=getActivity().findViewById(R.id.user_tv);//显示用户名
 
-        //user监听事件
+        sharedPreferences=getActivity().getSharedPreferences("ON", Context.MODE_PRIVATE);
+        final SharedPreferences.Editor editor=sharedPreferences.edit();
+        if(sharedPreferences.getBoolean("on",false))
+        {
+
+        }
+
+
+        //登录注册
         me_username.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it=new Intent(getActivity(), MeUserlogin.class);
-                startActivity(it);
+                if(sharedPreferences.getBoolean("on",false))
+                {
+                    Intent it = new Intent(getActivity(), MeUserlogin.class);
+                    startActivity(it);
+                }
+                else
+                {
+                    editor.putBoolean("on",false);
+                    Intent it = new Intent(getActivity(), MeUserlogin.class);
+                    startActivity(it);
+                }
             }
         });
 

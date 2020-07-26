@@ -16,9 +16,14 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".me.MeUserlogin">
-
-        </activity>
+        <!--登录界面-->
+        <activity android:name=".me.MeUserlogin"/>
+        <!--注册界面-->
+        <activity android:name=".me.MeLoginsign"/>
+        <!--忘记密码-->
+        <activity android:name=".me.MeLoginforget"/>
+        <!--登录后跳转的布局-->
+        <activity android:name=".me.MeAftlogin"/>
     </application>
 
 </manifest>

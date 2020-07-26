@@ -1,5 +1,7 @@
 package com.edu.edusystem.dbtools;
 
+import android.util.Log;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -24,15 +26,17 @@ public class DBHelper {
 	public  static Connection iniConnection() {
 		// ///1.准备//////////////////
 		//jdbc:mysql://localhost:3306/jsjdata?useUnicode=true&characterEncoding=utf8
-		String url = "jdbc:mysql://cdb-omcraf3e.cd.tencentcdb.com:10142/news";
-		String username = "news_account";
-		String pwd = "qwert12345.";
+		String url = "jdbc:mysql://cdb-omcraf3e.cd.tencentcdb.com:10142/EduSystem";
+		String username = "edu_system_account";
+		String pwd = "qwert12345";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection cn = DriverManager.getConnection(url, username, pwd);
+			Log.i("连接数据库成功","sssss");
 			return cn;
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO 自动生成的 catch 块
+			Log.i("ssssssssssss","bbbbbbbbbbbbbb");
 			e.printStackTrace();
 		}
 		return null;

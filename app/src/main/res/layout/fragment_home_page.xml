@@ -20,6 +20,7 @@
     </com.google.android.material.tabs.TabLayout>
 
 
+
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/homepage_viewpager"
         android:layout_width="match_parent"
@@ -32,6 +33,9 @@
         app:layout_constraintTop_toBottomOf="@+id/homepage_tabLayout"
         app:layout_constraintVertical_bias="0.0"
         tools:ignore="MissingConstraints">
+
+
+
 
     </androidx.viewpager.widget.ViewPager>
 

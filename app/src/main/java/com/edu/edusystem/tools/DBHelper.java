@@ -1,4 +1,4 @@
-package com.edu.edusystem.dbtools;
+package com.edu.edusystem.tools;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -24,9 +24,9 @@ public class DBHelper {
 	public  static Connection iniConnection() {
 		// ///1.准备//////////////////
 		//jdbc:mysql://localhost:3306/jsjdata?useUnicode=true&characterEncoding=utf8
-		String url = "jdbc:mysql://cdb-omcraf3e.cd.tencentcdb.com:10142/news";
-		String username = "news_account";
-		String pwd = "qwert12345.";
+		String url = "jdbc:mysql://cdb-omcraf3e.cd.tencentcdb.com:10142/EduSystem?useUnicode=true&characterEncoding=utf8";
+		String username = "edu_system_account";
+		String pwd = "qwert12345";
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 			Connection cn = DriverManager.getConnection(url, username, pwd);

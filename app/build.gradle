@@ -1,13 +1,19 @@
 apply plugin: 'com.android.application'
-
+// SMS添加插件
+apply plugin: 'com.mob.sdk'
+MobSDK {
+    appKey "303969cd2d056"
+    appSecret "e7999231f92b29e6dc19015b31dab8f2"
+    SMSSDK {}
+}
 android {
-    compileSdkVersion 30
-    buildToolsVersion "30.0.0"
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
 
     defaultConfig {
         applicationId "com.edu.edusystem"
-        minSdkVersion 22
-        targetSdkVersion 30
+        minSdkVersion 24
+        targetSdkVersion 26
         versionCode 1
         versionName "1.0"
 
@@ -33,5 +39,5 @@ dependencies {
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation 'com.google.android.material:material:1.1.0'
-    implementation files('libs/mysql-connector-java-5.1.10-bin.jar')
+    implementation 'org.jetbrains:annotations-java5:15.0'
 }

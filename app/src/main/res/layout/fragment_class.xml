@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/sw"
+    android:id="@+id/class_SwipeRefreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragmenthomepage.FragmentClass">
@@ -16,13 +17,13 @@
             android:layout_height="match_parent">
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/class_arts_exam"
+                android:id="@+id/teacher_card1"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="8dp"
                 android:backgroundTint="#03A9F4"
                 app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/class_china"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card2"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
@@ -47,17 +48,17 @@
 
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/class_china"
+                android:id="@+id/teacher_card2"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="8dp"
                 android:backgroundTint="#03A9F4"
                 app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/class_math"
-                app:layout_constraintEnd_toEndOf="@+id/class_arts_exam"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card3"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card1"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/class_arts_exam"
-                app:layout_constraintTop_toBottomOf="@+id/class_arts_exam"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card1"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card1"
                 tools:ignore="MissingConstraints">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -79,17 +80,17 @@
 
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/class_math"
+                android:id="@+id/teacher_card3"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="8dp"
                 android:backgroundTint="#03A9F4"
                 app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/class_english"
-                app:layout_constraintEnd_toEndOf="@+id/class_china"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card4"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card2"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/class_china"
-                app:layout_constraintTop_toBottomOf="@+id/class_china"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card2"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card2"
                 tools:ignore="MissingConstraints">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -111,17 +112,17 @@
 
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/class_english"
+                android:id="@+id/teacher_card4"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="8dp"
                 android:backgroundTint="#03A9F4"
                 app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/class_physics"
-                app:layout_constraintEnd_toEndOf="@+id/class_math"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card5"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card3"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/class_math"
-                app:layout_constraintTop_toBottomOf="@+id/class_math"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card3"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card3"
                 tools:ignore="MissingConstraints">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -143,17 +144,17 @@
 
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/class_physics"
+                android:id="@+id/teacher_card5"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="8dp"
                 android:backgroundTint="#03A9F4"
                 app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/class_chemistry"
-                app:layout_constraintEnd_toEndOf="@+id/class_english"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card6"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card4"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/class_english"
-                app:layout_constraintTop_toBottomOf="@+id/class_english"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card4"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card4"
                 tools:ignore="MissingConstraints">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -175,17 +176,17 @@
 
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/class_chemistry"
+                android:id="@+id/teacher_card6"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="8dp"
                 android:backgroundTint="#03A9F4"
                 app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/class_biology"
-                app:layout_constraintEnd_toEndOf="@+id/class_physics"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card7"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card5"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/class_physics"
-                app:layout_constraintTop_toBottomOf="@+id/class_physics"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card5"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card5"
                 tools:ignore="MissingConstraints">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -206,17 +207,17 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/class_biology"
+                android:id="@+id/teacher_card7"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="8dp"
                 android:backgroundTint="#03A9F4"
                 app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/class_history"
-                app:layout_constraintEnd_toEndOf="@+id/class_chemistry"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card8"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card6"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/class_chemistry"
-                app:layout_constraintTop_toBottomOf="@+id/class_chemistry"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card6"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card6"
                 tools:ignore="MissingConstraints">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -238,17 +239,17 @@
 
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/class_history"
+                android:id="@+id/teacher_card8"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="8dp"
                 android:backgroundTint="#03A9F4"
                 app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/class_politics"
-                app:layout_constraintEnd_toEndOf="@+id/class_biology"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card9"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card7"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/class_biology"
-                app:layout_constraintTop_toBottomOf="@+id/class_biology"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card7"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card7"
                 tools:ignore="MissingConstraints">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -269,17 +270,17 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/class_politics"
+                android:id="@+id/teacher_card9"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="8dp"
                 android:backgroundTint="#03A9F4"
                 app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/class_geography"
-                app:layout_constraintEnd_toEndOf="@+id/class_history"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card10"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card8"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/class_history"
-                app:layout_constraintTop_toBottomOf="@+id/class_history"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card8"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card8"
                 tools:ignore="MissingConstraints">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -300,7 +301,7 @@
             </com.google.android.material.card.MaterialCardView>
 
             <com.google.android.material.card.MaterialCardView
-                android:id="@+id/class_geography"
+                android:id="@+id/teacher_card10"
                 android:layout_width="match_parent"
                 android:layout_height="100dp"
                 android:layout_margin="8dp"
@@ -308,10 +309,10 @@
                 android:backgroundTint="#03A9F4"
                 app:cardElevation="3dp"
                 app:layout_constraintBottom_toTopOf="@+id/guideline"
-                app:layout_constraintEnd_toEndOf="@+id/class_politics"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card9"
                 app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/class_politics"
-                app:layout_constraintTop_toBottomOf="@+id/class_politics"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card9"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card9"
                 tools:ignore="MissingConstraints,NotSibling">
 
                 <androidx.constraintlayout.widget.ConstraintLayout

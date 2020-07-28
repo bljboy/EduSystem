@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/syn_nav"
+    app:startDestination="@id/fragmentHomeSyn">
+
+    <fragment
+        android:id="@+id/fragmentHomeSyn"
+        android:name="com.edu.edusystem.fragmenthomepage.FragmentHomeSyn"
+        android:label="fragment_home_syn"
+        tools:layout="@layout/syn_home_hostfragment">
+        <action
+            android:id="@+id/action_fragmentHomeSyn_to_synSelectedCourseFragmentJump"
+            app:destination="@id/synSelectedCourseFragmentJump" />
+    </fragment>
+    <activity
+        android:id="@+id/synSelectedCourseFragmentJump"
+        android:name="com.edu.edusystem.fragmentsyn.SynSelectedCourseFragmentJump"
+        android:label="SynSelectedCourseFragmentJump" />
+</navigation>

@@ -4,13 +4,11 @@ import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager.widget.ViewPager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 import com.edu.edusystem.R;
 import com.edu.edusystem.fragmentAdapter.FragmentAdapter;
@@ -19,7 +17,6 @@ import com.edu.edusystem.fragmenthomepage.FragmentSyn;
 import com.google.android.material.tabs.TabLayout;
 
 import java.util.ArrayList;
-import java.util.List;
 
 /***
  * -----首页------
@@ -28,10 +25,10 @@ import java.util.List;
  */
 
 public class FragmentHomePage extends Fragment {
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
-    private ArrayList<Fragment> list;
-    private FragmentAdapter adapter;
+    TabLayout tabLayout;
+    ViewPager viewPager;
+    ArrayList<Fragment> list;
+    FragmentAdapter adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -41,21 +38,19 @@ public class FragmentHomePage extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_home_page, container, false);
+        return inflater.inflate(R.layout.syn_home_viewpager, container, false);
     }
 
     //功能实现操作
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-//        TextView textView = getActivity().findViewById(R.id.te);
-//        textView.setText("sssssssssssssssss");
         tabLayout = getActivity().findViewById(R.id.homepage_tabLayout);
         viewPager = getActivity().findViewById(R.id.homepage_viewpager);
         list = new ArrayList<>();
         list.add(new FragmentSyn());
         list.add(new FragmentClass());
-        adapter = new FragmentAdapter(getActivity().getSupportFragmentManager(),list);
+        adapter = new FragmentAdapter(getChildFragmentManager(), list);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
     }

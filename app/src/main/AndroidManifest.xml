@@ -13,7 +13,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
         <activity android:name=".teacherLecture.FragmentTeacherLecture"/>
         <activity android:name=".fragmentClass.FragmentArts" />
         <activity
@@ -41,6 +41,16 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <!--登录界面-->
+        <activity android:name=".me.MeUserlogin"/>
+        <!--注册界面-->
+        <activity android:name=".me.MeLoginsign"/>
+        <!--忘记密码-->
+        <activity android:name=".me.MeLoginforget"/>
+        <!--登录后跳转的布局-->
+        <activity android:name=".me.MeAftlogin"/>
 
     </application>
 

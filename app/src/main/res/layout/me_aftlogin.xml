@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ffffff"
+    android:orientation="vertical"
+    tools:context=".fragmentThree.FragmentMe">
+    <!-- TODO: Update blank fragment layout -->
+
+    <!--登录后界面-->
+
+
+    <!--用户名-->
+    <LinearLayout
+        android:id="@+id/me_aft_name"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/me_selector"
+        android:clickable="true">
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:text="用户名"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/aft_name"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:gravity="center_vertical"
+            android:text="MYzy"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:padding="5dp"
+            android:src="@drawable/rightaw" />
+    </LinearLayout>
+
+    <!--性别-->
+    <LinearLayout
+        android:id="@+id/me_aft_sex"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/me_selector"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:text="性别"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/aft_sex"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:gravity="center_vertical"
+            android:text="男"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:padding="5dp"
+            android:src="@drawable/rightaw" />
+    </LinearLayout>
+
+    <!--年龄-->
+    <LinearLayout
+        android:id="@+id/me_aft_age"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/me_selector"
+        android:clickable="true">
+
+        <TextView
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:text="年龄"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/aft_age"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="7"
+            android:gravity="center_vertical"
+            android:text="12"
+            android:textColor="#000000"
+            android:textSize="18sp" />
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            android:padding="5dp"
+            android:src="@drawable/rightaw" />
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/me_aft_quit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_gravity="center"
+        android:text="退出登录"/>
+
+</LinearLayout>

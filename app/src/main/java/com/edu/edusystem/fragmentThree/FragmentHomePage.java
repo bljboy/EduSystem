@@ -28,10 +28,10 @@ import java.util.List;
  */
 
 public class FragmentHomePage extends Fragment {
-    private TabLayout tabLayout;
-    private ViewPager viewPager;
-    private ArrayList<Fragment> list;
-    private FragmentAdapter adapter;
+    TabLayout tabLayout;
+    ViewPager viewPager;
+    ArrayList<Fragment> list;
+    FragmentAdapter adapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -48,14 +48,12 @@ public class FragmentHomePage extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-//        TextView textView = getActivity().findViewById(R.id.te);
-//        textView.setText("sssssssssssssssss");
         tabLayout = getActivity().findViewById(R.id.homepage_tabLayout);
         viewPager = getActivity().findViewById(R.id.homepage_viewpager);
         list = new ArrayList<>();
         list.add(new FragmentSyn());
         list.add(new FragmentClass());
-        adapter = new FragmentAdapter(getActivity().getSupportFragmentManager(),list);
+        adapter = new FragmentAdapter(getChildFragmentManager(), list);
         viewPager.setAdapter(adapter);
         tabLayout.setupWithViewPager(viewPager);
     }

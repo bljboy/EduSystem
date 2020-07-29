@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
 
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 
 import com.edu.edusystem.fragmentAdapter.FragmentAdapter;
@@ -13,6 +14,7 @@ import com.edu.edusystem.fragmentThree.FragmentHomePage;
 import com.edu.edusystem.fragmentThree.FragmentMe;
 import com.edu.edusystem.fragmentThree.FragmentStudy;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 
@@ -26,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNavigationView;
     //ViewPager viewPager;
     private int lastIndex;
-
+    private long exitTime;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -54,6 +56,8 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+
     }
 
 
@@ -77,5 +81,25 @@ public class MainActivity extends AppCompatActivity {
         }
         ft.show(currentFragment);
         ft.commitAllowingStateLoss();
+    }
+
+    @Override
+    public boolean dispatchKeyEvent(KeyEvent event) {
+        if (event.getKeyCode() == KeyEvent.KEYCODE_BACK
+                && event.getAction() == KeyEvent.ACTION_DOWN
+                && event.getRepeatCount() == 0) {
+            // 重写键盘事件分发，onKeyDown方法某些情况下捕获不到，只能在这里写
+            if ((System.currentTimeMillis() - exitTime) > 2000) {
+                Snackbar snackbar = Snackbar.make(bottomNavigationView,"再按一次退出程序", Snackbar.LENGTH_SHORT);
+
+                snackbar.getView().setBackgroundResource(R.color.backSnackBarColor);
+                snackbar.show();
+                exitTime = System.currentTimeMillis();
+            } else {
+                finish();
+            }
+            return true;
+        }
+        return super.dispatchKeyEvent(event);
     }
 }

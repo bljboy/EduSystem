@@ -14,12 +14,14 @@ import android.widget.Toast;
 
 import com.edu.edusystem.R;
 import com.edu.edusystem.tools.DBHelper;
+import com.google.android.material.appbar.MaterialToolbar;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
 public class FragmentTeacherLecture extends FragmentActivity implements View.OnClickListener{
 
+    private MaterialToolbar teacher_lecture_MaterialToolbar;
     private SwipeRefreshLayout teacher_lecture_SwipeRefreshLayout;
     private ImageView[] attention_imageViews = new ImageView[15];
     private int[] ImageViewIds = new int[]{R.id.attention1,R.id.attention2,R.id.attention3,
@@ -43,27 +45,37 @@ public class FragmentTeacherLecture extends FragmentActivity implements View.OnC
         setContentView(R.layout.fragment_teacher_lecture);
         TAG = this.getLocalClassName();
         teacher_lecture_SwipeRefreshLayout = findViewById(R.id.teacher_lecture_SwipeRefreshLayout);
-
+        teacher_lecture_MaterialToolbar = findViewById(R.id.teacher_lecture_MaterialToolbar);
+        teacher_lecture_MaterialToolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
+        // 卡片控件实例化
         for (int i = 0;i<attention_imageViews.length;i++){
             attention_imageViews[i] = findViewById(ImageViewIds[i]);
-            //attention_imageViews[i].setBa
             is_yes[i] = false;
             attention_imageViews[i].setOnClickListener(this);
         }
 
+        // 获取保存的用户信息
         SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         type = sp.getString("type","");
 
         String json = sp.getString("favorite_teacher","");
-        favoriteJsonObject = (JsonObject) new JsonParser().parse(json);
-        favoriteArray = favoriteJsonObject.getAsJsonArray("data");
+        try {
+            favoriteJsonObject = (JsonObject) new JsonParser().parse(json);
+            favoriteArray = favoriteJsonObject.getAsJsonArray("data");
+        } catch (ClassCastException e){
+            Log.e(TAG,"本地没有保存用户喜欢的老师信息");
+        }
 
         if(type.equals("1")){ // 如果是手机号登录
             user = sp.getString("user",""); // 获取用户手机号
         }else if(type.equals("2")) { // 如果是QQ号登录
             user = sp.getString("openId",""); // 获取QQ登录用户的openId
         }
-
 
         for (int i =0;i<favoriteArray.size();i++){
             JsonObject object = (JsonObject) favoriteArray.get(i);

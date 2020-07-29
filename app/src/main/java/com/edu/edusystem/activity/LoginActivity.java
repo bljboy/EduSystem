@@ -42,6 +42,8 @@ import org.json.JSONObject;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.List;
 
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
@@ -67,6 +69,8 @@ public class LoginActivity extends AppCompatActivity {
     private CheckBox log_agree_chBox; // 我同意复选框
     private TextView log_agreement; // 用户协议
 
+    private String favorite_teacher_json;
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == Constants.REQUEST_LOGIN) {
@@ -77,17 +81,55 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
-    private void executeSQL(final String sql,final Object[] objects){
+    //手机号登录用户查询该用户喜欢的老师
+    private void queryFavoriteTeacher(final String sql, final Object[] objects) {
+
+
+        List<HashMap<String, Object>> list = DBHelper.getList(sql, objects);
+        for (HashMap<String, Object> map : list) {
+            favorite_teacher_json = (String) map.get("favorite_teacher");
+        }
+
+
+        Log.i("favorite_teacher>>>>>>>>>>", favorite_teacher_json + "");
+
+        SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        SharedPreferences.Editor editor = sp.edit();
+        editor.putString("type", "1"); // 1是手机号登录
+        editor.putString("user", phone);
+        editor.putString("favorite_teacher", favorite_teacher_json);
+        editor.apply();
+
+
+    }
+
+    private void executeSQL(final String sql, final Object[] objects) {
+        new Thread() {
+            @Override
+            public void run() {
+                super.run();
+                if (objects == null) {
+                    DBHelper.Update(sql, null);
+                } else {
+                    DBHelper.Update(sql, objects);
+                }
+
+            }
+        }.start();
+
         new Thread(){
             @Override
             public void run() {
                 super.run();
-                if(objects==null){
-                    DBHelper.Update(sql,null);
-                }else {
-                    DBHelper.Update(sql,objects);
+                try {
+                    sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
                 }
 
+                //查询用户喜欢的老师
+                String sqlString = "select favorite_teacher from user_table where phone=?";
+                queryFavoriteTeacher(sqlString, new Object[]{phone});
             }
         }.start();
     }
@@ -97,9 +139,18 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        sp=getSharedPreferences("one",MODE_PRIVATE);
-        isFirst=sp.getBoolean("isFrist",true);
-        if(isFirst){
+        SharedPreferences sharedPreferences = getSharedPreferences("userInfo",Context.MODE_PRIVATE);
+        String type = sharedPreferences.getString("type","");
+        if(!type.equals("")){
+            Log.i("LoginActivity>>>>>>>>","本地已保存过用户信息");
+            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+            startActivity(intent);
+            this.finish();
+        }
+
+        sp = getSharedPreferences("one", MODE_PRIVATE);
+        isFirst = sp.getBoolean("isFrist", true);
+        if (isFirst) {
             showDialog();//显示对话框
         }
 
@@ -127,17 +178,16 @@ public class LoginActivity extends AppCompatActivity {
                             @Override
                             public void run() {
                                 //跳转到主页面
-                                Toast.makeText(LoginActivity.this, "验证成功", Toast.LENGTH_SHORT).show();
-                                SharedPreferences sp = getSharedPreferences("userInfo",Context.MODE_PRIVATE);
-                                SharedPreferences.Editor editor = sp.edit();
-                                editor.putString("type","1"); // 1是手机号登录
-                                editor.putString("user",phone);
-                                editor.apply();
+                                //Toast.makeText(LoginActivity.this, "验证成功", Toast.LENGTH_SHORT).show();
 
                                 //保存用户输入的手机号到用户表
-                                String sql = "insert into user_table(phone) values (?)";
-                                Object[] objects = new Object[]{phone};
-                                executeSQL(sql,objects);
+                                String sql = "insert into user_table(phone,favorite_teacher) values (?,?)";
+                                Object[] objects = new Object[]{phone, "{\"data\":[]}"};
+                                executeSQL(sql, objects);
+
+
+//
+
 
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
@@ -338,41 +388,73 @@ public class LoginActivity extends AppCompatActivity {
                         //Log.i("TAG", "登录成功" + response.toString());
                         JSONObject obj = (JSONObject) response;
                         try {
-                            String nickname = obj.getString("nickname");
-                            String sex = obj.getString("gender"); //性别
+                            final String nickname = obj.getString("nickname");
+                            final String sex = obj.getString("gender"); //性别
                             String year = obj.getString("year"); // 生日年
                             String figureurl_qq_1 = obj.getString("figureurl_qq_1");
-                            String figureurl_qq_2 = obj.getString("figureurl_qq_2");
+                            final String figureurl_qq_2 = obj.getString("figureurl_qq_2");
                             @SuppressLint("SimpleDateFormat")
                             SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
                             String nowYear = sdf.format(new Date());
                             // year = nowYear - year;
                             int s = Integer.parseInt(nowYear) - Integer.parseInt(year);
 
-                            String age = String.valueOf(s);
+                            final String age = String.valueOf(s);
 
 
                             Log.i("nickname>>>", nickname);
                             Log.i("figureurl_qq_1>>>", figureurl_qq_1 + "");
                             Log.i("figureurl_qq_2>>>", figureurl_qq_2 + "");
-                            SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-                            SharedPreferences.Editor editor = sp.edit();
-                            editor.putString("type", "2");// 2是QQ登录
-                            editor.putString("openId", openID);// 性别
-                            editor.putString("nickname", nickname); // 昵称
-                            editor.putString("sex", sex); //性别
-                            editor.putString("age", age); //年龄
-                            if (figureurl_qq_2.equals("") || figureurl_qq_2 == null) {
-                                editor.putString("figureurl_qq_1", figureurl_qq_2);
-                            } else {
-                                editor.putString("figureurl_qq_2", figureurl_qq_2);
-                            }
-                            editor.apply();
 
-                            //保存QQ登录用户信息到用户表
-                            String sql = "insert into user_table(username,sex,age,qq_openid) values (?,?,?,?)";
-                            Object[] objects = new Object[]{nickname,sex,age,openID};
-                            executeSQL(sql,objects);
+                            //final String sqlString = "select favorite_teacher from user_table where qq_openid=?";
+
+                            new Thread() {
+                                @Override
+                                public void run() {
+
+                                    //保存QQ登录用户信息到用户表
+                                    String sql = "insert into user_table(username,sex,age,qq_openid,favorite_teacher) values (?,?,?,?,?)";
+                                    Object[] objects = new Object[]{nickname, sex, age, openID, "{\"data\":[]}"};
+                                    DBHelper.Update(sql,objects);
+
+                                }
+                            }.start();
+
+                            new Thread(){
+                                @Override
+                                public void run() {
+                                    super.run();
+                                    try {
+                                        sleep(1000);
+                                    } catch (InterruptedException e) {
+                                        e.printStackTrace();
+                                    }
+                                    String sqlString = "select favorite_teacher from user_table where qq_openid=?";
+
+                                    List<HashMap<String, Object>> list = DBHelper.getList(sqlString, new Object[]{openID});
+                                    for (HashMap<String, Object> map : list) {
+                                        favorite_teacher_json = (String) map.get("favorite_teacher");
+                                    }
+
+                                    Log.i("favorite_teacher>>>>>>>>>>", favorite_teacher_json);
+
+                                    SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                                    SharedPreferences.Editor editor = sp.edit();
+                                    editor.putString("type", "2");// 2是QQ登录
+                                    editor.putString("openId", openID);// id
+                                    editor.putString("nickname", nickname); // 昵称
+                                    editor.putString("sex", sex); //性别
+                                    editor.putString("age", age); //年龄
+                                    editor.putString("favorite_teacher", favorite_teacher_json);
+                                    if (figureurl_qq_2.equals("") || figureurl_qq_2 == null) {
+                                        editor.putString("figureurl_qq_1", figureurl_qq_2);
+                                    } else {
+                                        editor.putString("figureurl_qq_2", figureurl_qq_2);
+                                    }
+                                    editor.apply();
+                                }
+                            }.start();
+
 
                             Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                             startActivity(intent);

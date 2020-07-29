@@ -2,22 +2,21 @@ package com.edu.edusystem.teacherLecture;
 
 import android.content.Context;
 import android.content.SharedPreferences;
-import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 
-import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.edu.edusystem.R;
 import com.edu.edusystem.tools.DBHelper;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 
 public class FragmentTeacherLecture extends FragmentActivity implements View.OnClickListener{
 
@@ -35,6 +34,9 @@ public class FragmentTeacherLecture extends FragmentActivity implements View.OnC
     private String type;
     private String TAG;
 
+    private JsonObject favoriteJsonObject; // 用户喜欢的老师最外层的json数据
+    private JsonArray favoriteArray; // 喜欢的老师的json array数据
+
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,17 +53,26 @@ public class FragmentTeacherLecture extends FragmentActivity implements View.OnC
 
         SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         type = sp.getString("type","");
+
+        String json = sp.getString("favorite_teacher","");
+        favoriteJsonObject = (JsonObject) new JsonParser().parse(json);
+        favoriteArray = favoriteJsonObject.getAsJsonArray("data");
+
         if(type.equals("1")){ // 如果是手机号登录
             user = sp.getString("user",""); // 获取用户手机号
         }else if(type.equals("2")) { // 如果是QQ号登录
             user = sp.getString("openId",""); // 获取QQ登录用户的openId
         }
 
-        attention_imageViews[1].setBackgroundResource(R.drawable.favorite_yes);
-        is_yes[1] = true;
 
-        attention_imageViews[2].setBackgroundResource(R.drawable.favorite_no);
-        is_yes[2] = false;
+        for (int i =0;i<favoriteArray.size();i++){
+            JsonObject object = (JsonObject) favoriteArray.get(i);
+            String string = object.get("teacher").getAsString();
+            int index = Integer.parseInt(string.substring(string.length()-1));
+            attention_imageViews[index-1].setBackgroundResource(R.drawable.favorite_yes);
+            is_yes[index-1] = true;
+
+        }
 
         teacher_lecture_SwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override
@@ -168,13 +179,35 @@ public class FragmentTeacherLecture extends FragmentActivity implements View.OnC
                     is_yes[i] = true;
                     attention_imageViews[i].setBackgroundResource(R.drawable.favorite_yes);
                     Log.i("favorite_yes>>>>>>>","第"+i+"控件");
-                    addFavorite("teadawdaw1");
+
+
+                    JsonObject object = new JsonObject();
+                    object.addProperty("teacher","teacher"+(i+1));
+                    favoriteArray.add(object);
+
+                    addFavorite(favoriteJsonObject.toString());
+
+                    SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("favorite_teacher", favoriteJsonObject.toString());
+                    editor.apply();
+
                 }else {
                     // 取消喜欢
                     is_yes[i] = false;
                     attention_imageViews[i].setBackgroundResource(R.drawable.favorite_no);
                     Log.i("favorite_no>>>>>>>","第"+i+"控件");
-                    removeFavorite("");
+
+                    JsonObject object = new JsonObject();
+                    object.addProperty("teacher","teacher"+(i+1));
+                    favoriteArray.remove(object);
+
+                    removeFavorite(favoriteJsonObject.toString());
+
+                    SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                    SharedPreferences.Editor editor = sp.edit();
+                    editor.putString("favorite_teacher", favoriteJsonObject.toString());
+                    editor.apply();
                 }
             }
         }

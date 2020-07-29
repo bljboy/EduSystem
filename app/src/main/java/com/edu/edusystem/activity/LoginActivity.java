@@ -359,9 +359,9 @@ public class LoginActivity extends AppCompatActivity {
                             SharedPreferences.Editor editor = sp.edit();
                             editor.putString("type", "2");// 2是QQ登录
                             editor.putString("openId", openID);// 性别
-                            editor.putString("nickname", nickname);
-                            editor.putString("sex", sex);
-                            editor.putString("age", age);
+                            editor.putString("nickname", nickname); // 昵称
+                            editor.putString("sex", sex); //性别
+                            editor.putString("age", age); //年龄
                             if (figureurl_qq_2.equals("") || figureurl_qq_2 == null) {
                                 editor.putString("figureurl_qq_1", figureurl_qq_2);
                             } else {

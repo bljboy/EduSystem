@@ -3,607 +3,592 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/class_SwipeRefreshLayout"
+    android:id="@+id/teacher_lecture_SwipeRefreshLayout"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     tools:context=".teacherLecture.FragmentTeacherLecture">
 
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
-        <androidx.constraintlayout.widget.ConstraintLayout
+
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/teacher_card1"
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="8dp"
-                app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/teacher_card2"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                tools:ignore="MissingConstraints">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/teacher1" />
-
-                    <TextView
-                        android:id="@+id/attention1"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="关注"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.953"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.94" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/teacher_card2"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="8dp"
-                app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/teacher_card3"
-                app:layout_constraintEnd_toEndOf="@+id/teacher_card1"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/teacher_card1"
-                app:layout_constraintTop_toBottomOf="@+id/teacher_card1"
-                tools:ignore="MissingConstraints">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/teacher2" />
-
-                    <TextView
-                        android:id="@+id/attention2"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="关注"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.953"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.94" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/teacher_card3"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="8dp"
-                app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/teacher_card4"
-                app:layout_constraintEnd_toEndOf="@+id/teacher_card2"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/teacher_card2"
-                app:layout_constraintTop_toBottomOf="@+id/teacher_card2"
-                tools:ignore="MissingConstraints">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/teacher3" />
-
-                    <TextView
-                        android:id="@+id/attention3"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="关注"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.953"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.94" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/teacher_card4"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="8dp"
-                app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/teacher_card5"
-                app:layout_constraintEnd_toEndOf="@+id/teacher_card3"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/teacher_card3"
-                app:layout_constraintTop_toBottomOf="@+id/teacher_card3"
-                tools:ignore="MissingConstraints">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/teacher4" />
-
-                    <TextView
-                        android:id="@+id/attention4"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="关注"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.953"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.94" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/teacher_card5"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="8dp"
-                app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/teacher_card6"
-                app:layout_constraintEnd_toEndOf="@+id/teacher_card4"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/teacher_card4"
-                app:layout_constraintTop_toBottomOf="@+id/teacher_card4"
-                tools:ignore="MissingConstraints">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/teacher5" />
-
-                    <TextView
-                        android:id="@+id/attention5"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="关注"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.953"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.94" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/teacher_card6"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="8dp"
-                app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/teacher_card7"
-                app:layout_constraintEnd_toEndOf="@+id/teacher_card5"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/teacher_card5"
-                app:layout_constraintTop_toBottomOf="@+id/teacher_card5"
-                tools:ignore="MissingConstraints">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/teacher6" />
-
-                    <TextView
-                        android:id="@+id/attention6"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="关注"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.953"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.94" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/teacher_card7"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="8dp"
-                app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/teacher_card8"
-                app:layout_constraintEnd_toEndOf="@+id/teacher_card6"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/teacher_card6"
-                app:layout_constraintTop_toBottomOf="@+id/teacher_card6"
-                tools:ignore="MissingConstraints">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/teacher7" />
-
-                    <TextView
-                        android:id="@+id/attention7"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="关注"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.953"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.94" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/teacher_card8"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="8dp"
-                app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/teacher_card9"
-                app:layout_constraintEnd_toEndOf="@+id/teacher_card7"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/teacher_card7"
-                app:layout_constraintTop_toBottomOf="@+id/teacher_card7"
-                tools:ignore="MissingConstraints">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/teacher8" />
-
-                    <TextView
-                        android:id="@+id/attention8"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="关注"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.953"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.94" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/teacher_card9"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="8dp"
-                app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/teacher_card10"
-                app:layout_constraintEnd_toEndOf="@+id/teacher_card8"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/teacher_card8"
-                app:layout_constraintTop_toBottomOf="@+id/teacher_card8"
-                tools:ignore="MissingConstraints">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/teacher9" />
-
-                    <TextView
-                        android:id="@+id/attention9"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="关注"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.953"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.94" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/teacher_card10"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="8dp"
-                android:layout_marginBottom="20dp"
-                app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/teacher_card11"
-                app:layout_constraintEnd_toEndOf="@+id/teacher_card9"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/teacher_card9"
-                app:layout_constraintTop_toBottomOf="@+id/teacher_card9"
-                tools:ignore="MissingConstraints,NotSibling">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/teacher10" />
-
-                    <TextView
-                        android:id="@+id/attention10"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="关注"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.953"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.94" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/teacher_card11"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="8dp"
-                app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/teacher_card12"
-                app:layout_constraintEnd_toEndOf="@+id/teacher_card10"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/teacher_card10"
-                app:layout_constraintTop_toBottomOf="@+id/teacher_card10"
-                tools:ignore="MissingConstraints">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/teacher11" />
-
-                    <TextView
-                        android:id="@+id/attention11"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="关注"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.953"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.94" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/teacher_card12"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="8dp"
-                app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/teacher_card13"
-                app:layout_constraintEnd_toEndOf="@+id/teacher_card11"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/teacher_card11"
-                app:layout_constraintTop_toBottomOf="@+id/teacher_card11"
-                tools:ignore="MissingConstraints">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/teacher12" />
-
-                    <TextView
-                        android:id="@+id/attention12"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="关注"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.953"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.94" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/teacher_card13"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="8dp"
-                app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/teacher_card14"
-                app:layout_constraintEnd_toEndOf="@+id/teacher_card12"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/teacher_card12"
-                app:layout_constraintTop_toBottomOf="@+id/teacher_card12"
-                tools:ignore="MissingConstraints">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/teacher13" />
-
-                    <TextView
-                        android:id="@+id/attention13"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="关注"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.953"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.94" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/teacher_card14"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="8dp"
-                app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/teacher_card15"
-                app:layout_constraintEnd_toEndOf="@+id/teacher_card13"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/teacher_card13"
-                app:layout_constraintTop_toBottomOf="@+id/teacher_card13"
-                tools:ignore="MissingConstraints">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/teacher14" />
-
-                    <TextView
-                        android:id="@+id/attention14"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="关注"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.953"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.94" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <com.google.android.material.card.MaterialCardView
-                android:id="@+id/teacher_card15"
-                android:layout_width="match_parent"
-                android:layout_height="300dp"
-                android:layout_margin="8dp"
-                app:cardElevation="3dp"
-                app:layout_constraintBottom_toTopOf="@+id/teacher_card14"
-                app:layout_constraintEnd_toEndOf="@+id/teacher_card14"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="@+id/teacher_card14"
-                app:layout_constraintTop_toBottomOf="@+id/teacher_card14"
-                tools:ignore="MissingConstraints">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:src="@drawable/teacher15" />
-
-                    <TextView
-                        android:id="@+id/attention15"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="关注"
-                        android:textSize="24sp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.953"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.94" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-            </com.google.android.material.card.MaterialCardView>
-
-            <androidx.constraintlayout.widget.Guideline
-                android:id="@+id/guideline"
-                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.95" />
+                android:orientation="vertical">
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/teacher_card1"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="8dp"
+                    app:cardElevation="3dp"
+                    app:layout_constraintBottom_toTopOf="@+id/teacher_card2"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:ignore="MissingConstraints">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
 
-        </androidx.constraintlayout.widget.ConstraintLayout>
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/teacher1"
+                            app:layout_constraintTop_toTopOf="parent" />
 
-    </ScrollView>
+                        <ImageView
+                            android:id="@+id/attention1"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/favorite_no"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.953"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.94" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/teacher_card2"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="8dp"
+                    app:cardElevation="3dp"
+                    app:layout_constraintBottom_toTopOf="@+id/teacher_card3"
+                    app:layout_constraintEnd_toEndOf="@+id/teacher_card1"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/teacher_card1"
+                    app:layout_constraintTop_toBottomOf="@+id/teacher_card1"
+                    tools:ignore="MissingConstraints">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/teacher2" />
+
+                        <ImageView
+                            android:id="@+id/attention2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            android:background="@drawable/favorite_no"
+                            app:layout_constraintHorizontal_bias="0.953"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.94" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/teacher_card3"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="8dp"
+                    app:cardElevation="3dp"
+                    app:layout_constraintBottom_toTopOf="@+id/teacher_card4"
+                    app:layout_constraintEnd_toEndOf="@+id/teacher_card2"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/teacher_card2"
+                    app:layout_constraintTop_toBottomOf="@+id/teacher_card2"
+                    tools:ignore="MissingConstraints">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/teacher3" />
+
+                        <ImageView
+                            android:id="@+id/attention3"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/favorite_no"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.953"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.94" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/teacher_card4"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="8dp"
+                    app:cardElevation="3dp"
+                    app:layout_constraintBottom_toTopOf="@+id/teacher_card5"
+                    app:layout_constraintEnd_toEndOf="@+id/teacher_card3"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/teacher_card3"
+                    app:layout_constraintTop_toBottomOf="@+id/teacher_card3"
+                    tools:ignore="MissingConstraints">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/teacher4"/>
+
+                        <ImageView
+                            android:id="@+id/attention4"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/favorite_no"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.953"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.94" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/teacher_card5"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="8dp"
+                    app:cardElevation="3dp"
+                    app:layout_constraintBottom_toTopOf="@+id/teacher_card6"
+                    app:layout_constraintEnd_toEndOf="@+id/teacher_card4"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/teacher_card4"
+                    app:layout_constraintTop_toBottomOf="@+id/teacher_card4"
+                    tools:ignore="MissingConstraints">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/teacher5" />
+
+                        <ImageView
+                            android:id="@+id/attention5"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/favorite_no"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.953"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.94" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/teacher_card6"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="8dp"
+                    app:cardElevation="3dp"
+                    app:layout_constraintBottom_toTopOf="@+id/teacher_card7"
+                    app:layout_constraintEnd_toEndOf="@+id/teacher_card5"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/teacher_card5"
+                    app:layout_constraintTop_toBottomOf="@+id/teacher_card5"
+                    tools:ignore="MissingConstraints">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/teacher6" />
+
+                        <ImageView
+                            android:id="@+id/attention6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/favorite_no"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.953"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.94" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/teacher_card7"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="8dp"
+                    app:cardElevation="3dp"
+                    app:layout_constraintBottom_toTopOf="@+id/teacher_card8"
+                    app:layout_constraintEnd_toEndOf="@+id/teacher_card6"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/teacher_card6"
+                    app:layout_constraintTop_toBottomOf="@+id/teacher_card6"
+                    tools:ignore="MissingConstraints">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/teacher7" />
+
+                        <ImageView
+                            android:id="@+id/attention7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/favorite_no"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.953"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.94" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/teacher_card8"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="8dp"
+                    app:cardElevation="3dp"
+                    app:layout_constraintBottom_toTopOf="@+id/teacher_card9"
+                    app:layout_constraintEnd_toEndOf="@+id/teacher_card7"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/teacher_card7"
+                    app:layout_constraintTop_toBottomOf="@+id/teacher_card7"
+                    tools:ignore="MissingConstraints">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/teacher8" />
+
+                        <ImageView
+                            android:id="@+id/attention8"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/favorite_no"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.953"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.94" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/teacher_card9"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="8dp"
+                    app:cardElevation="3dp"
+                    app:layout_constraintBottom_toTopOf="@+id/teacher_card10"
+                    app:layout_constraintEnd_toEndOf="@+id/teacher_card8"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/teacher_card8"
+                    app:layout_constraintTop_toBottomOf="@+id/teacher_card8"
+                    tools:ignore="MissingConstraints">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/teacher9" />
+
+                        <ImageView
+                            android:id="@+id/attention9"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/favorite_no"                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.953"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.94" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/teacher_card10"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="8dp"
+                    android:layout_marginBottom="20dp"
+                    app:cardElevation="3dp"
+                    app:layout_constraintBottom_toTopOf="@+id/teacher_card11"
+                    app:layout_constraintEnd_toEndOf="@+id/teacher_card9"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/teacher_card9"
+                    app:layout_constraintTop_toBottomOf="@+id/teacher_card9"
+                    tools:ignore="MissingConstraints,NotSibling">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/teacher10" />
+
+                        <ImageView
+                            android:id="@+id/attention10"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/favorite_no"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.953"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.94" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/teacher_card11"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="8dp"
+                    app:cardElevation="3dp"
+                    app:layout_constraintBottom_toTopOf="@+id/teacher_card12"
+                    app:layout_constraintEnd_toEndOf="@+id/teacher_card10"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/teacher_card10"
+                    app:layout_constraintTop_toBottomOf="@+id/teacher_card10"
+                    tools:ignore="MissingConstraints">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/teacher11" />
+
+                        <ImageView
+                            android:id="@+id/attention11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/favorite_no"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.953"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.94" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/teacher_card12"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="8dp"
+                    app:cardElevation="3dp"
+                    app:layout_constraintBottom_toTopOf="@+id/teacher_card13"
+                    app:layout_constraintEnd_toEndOf="@+id/teacher_card11"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/teacher_card11"
+                    app:layout_constraintTop_toBottomOf="@+id/teacher_card11"
+                    tools:ignore="MissingConstraints">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/teacher12" />
+
+                        <ImageView
+                            android:id="@+id/attention12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/favorite_no"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.953"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.94" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/teacher_card13"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="8dp"
+                    app:cardElevation="3dp"
+                    app:layout_constraintBottom_toTopOf="@+id/teacher_card14"
+                    app:layout_constraintEnd_toEndOf="@+id/teacher_card12"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/teacher_card12"
+                    app:layout_constraintTop_toBottomOf="@+id/teacher_card12"
+                    tools:ignore="MissingConstraints">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/teacher13" />
+
+                        <ImageView
+                            android:id="@+id/attention13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/favorite_no"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.953"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.94" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/teacher_card14"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="8dp"
+                    app:cardElevation="3dp"
+                    app:layout_constraintBottom_toTopOf="@+id/teacher_card15"
+                    app:layout_constraintEnd_toEndOf="@+id/teacher_card13"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/teacher_card13"
+                    app:layout_constraintTop_toBottomOf="@+id/teacher_card13"
+                    tools:ignore="MissingConstraints">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/teacher14" />
+
+                        <ImageView
+                            android:id="@+id/attention14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/favorite_no"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.953"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.94" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/teacher_card15"
+                    android:layout_width="match_parent"
+                    android:layout_height="300dp"
+                    android:layout_margin="8dp"
+                    app:cardElevation="3dp"
+                    app:layout_constraintBottom_toTopOf="@+id/teacher_card14"
+                    app:layout_constraintEnd_toEndOf="@+id/teacher_card14"
+                    app:layout_constraintHorizontal_bias="0.5"
+                    app:layout_constraintStart_toStartOf="@+id/teacher_card14"
+                    app:layout_constraintTop_toBottomOf="@+id/teacher_card14"
+                    tools:ignore="MissingConstraints">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:src="@drawable/teacher15" />
+
+                        <ImageView
+                            android:id="@+id/attention15"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:background="@drawable/favorite_no"                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintHorizontal_bias="0.953"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:layout_constraintVertical_bias="0.94" />
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.card.MaterialCardView>
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.95" />
+
+            </LinearLayout>
+        </ScrollView>
 
 
 </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

@@ -1,14 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".fragmentThree.FragmentStudy">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="stu" />
+        android:orientation="vertical"
+        android:layout_weight="1">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/stu_MyCurriculum"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="我的课程"
+                android:textSize="20dp"
+                android:padding="5dp"/>
+
+            <TextView
+                android:id="@+id/stu_MyCurriculum_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:text="更多>>"
+                android:textSize="20dp"
+                android:padding="5dp" />
+        </RelativeLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/stu_MyCurriculum_list"
+            android:layout_weight="1"
+            android:visibility="visible">
+        </ListView>
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="你还没有添加课程哦\n点击添加课程"
+            android:layout_weight="1"
+            android:background="#00000000"
+            android:gravity="center"
+            android:visibility="gone"
+            >
+        </Button>
+
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/stu_MentoringCommunity"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="答疑社区"
+                android:textSize="20dp"
+                android:padding="5dp" />
+
+            <TextView
+                android:id="@+id/stu_MentoringCommunity_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:text="更多>>"
+                android:textSize="20dp"
+                android:padding="5dp" />
+        </RelativeLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/stu_MentoringCommunity_list"
+            android:layout_weight="1"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_weight="1">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="5"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:id="@+id/stu_Knowledgepoint"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:text="语文必备知识点"
+                android:textSize="20dp"
+                android:padding="5dp" />
+
+            <TextView
+                android:id="@+id/stu_Knowledgepoint_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:text="更多>>"
+                android:textSize="20dp"
+                android:padding="5dp" />
+        </RelativeLayout>
+
+        <ListView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/stu_Knowledgepoint_list"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+</LinearLayout>

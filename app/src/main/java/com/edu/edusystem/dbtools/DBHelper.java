@@ -24,7 +24,7 @@ public class DBHelper {
 	public  static Connection iniConnection() {
 		// ///1.准备//////////////////
 		//jdbc:mysql://localhost:3306/jsjdata?useUnicode=true&characterEncoding=utf8
-		String url = "jdbc:mysql://cdb-omcraf3e.cd.tencentcdb.com:10142/news";
+		String url = "jdbc:mysql://cdb-omcraf3e.cd.tencentcdb.com:10142/EduSystem";
 		String username = "news_account";
 		String pwd = "qwert12345.";
 		try {

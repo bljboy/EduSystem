@@ -16,6 +16,9 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".fragment_study.stu_MainActivity" />
+        <activity android:name=".fragment_study.stu_knowlesgepoint_more" />
+        <activity android:name=".fragment_study.stu_knowlesgepoint_particulars" />
     </application>
 
 </manifest>

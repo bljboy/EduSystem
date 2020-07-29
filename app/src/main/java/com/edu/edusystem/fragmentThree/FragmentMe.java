@@ -17,7 +17,9 @@ import android.widget.TextView;
 
 import com.edu.edusystem.R;
 import com.edu.edusystem.dbtools.DBHelper;
+import com.edu.edusystem.me.MeAftlogin;
 import com.edu.edusystem.me.MeUserlogin;
+import com.edu.edusystem.me.Mepriage;
 
 
 /**
@@ -38,9 +40,7 @@ public class FragmentMe extends Fragment {
     * 隐私和政策
     **/
     private Boolean whecher;//使用boolean判断
-    private SharedPreferences sharedPreferences;//是否登录
     private TextView me_logtv;
-    private DBHelper dbHelper;
 
 
     @Override
@@ -58,8 +58,7 @@ public class FragmentMe extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        dbHelper=new DBHelper();
-        Log.i("数据库连接","sssssssssssssssss");
+
         me_username=getActivity().findViewById(R.id.me_user);//user
         me_favorite=getActivity().findViewById(R.id.me_favorite);//我的收藏
         me_feedback=getActivity().findViewById(R.id.me_feedback);//用户反馈
@@ -67,29 +66,15 @@ public class FragmentMe extends Fragment {
         me_pvypcy=getActivity().findViewById(R.id.me_pvypcy);//隐私和政策
         me_logtv=getActivity().findViewById(R.id.user_tv);//显示用户名
 
-        sharedPreferences=getActivity().getSharedPreferences("ON", Context.MODE_PRIVATE);
-        final SharedPreferences.Editor editor=sharedPreferences.edit();
-        if(sharedPreferences.getBoolean("on",false))
-        {
-
-        }
 
 
         //登录注册
         me_username.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(sharedPreferences.getBoolean("on",false))
-                {
-                    Intent it = new Intent(getActivity(), MeUserlogin.class);
+                    Intent it = new Intent(getActivity(), MeAftlogin.class);
                     startActivity(it);
-                }
-                else
-                {
-                    editor.putBoolean("on",false);
-                    Intent it = new Intent(getActivity(), MeUserlogin.class);
-                    startActivity(it);
-                }
+
             }
         });
 
@@ -121,7 +106,8 @@ public class FragmentMe extends Fragment {
         me_pvypcy.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent it=new Intent(getActivity(), Mepriage.class);
+                startActivity(it);
             }
         });
     }

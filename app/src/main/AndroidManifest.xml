@@ -24,6 +24,12 @@
         <activity android:name=".me.MeLoginforget"/>
         <!--登录后跳转的布局-->
         <activity android:name=".me.MeAftlogin"/>
+        <!--用户协议-->
+        <activity android:name=".Agreement"/>
+        <!--隐私政策-->
+        <activity android:name=".Privacy"/>
+        <!--协议和隐私政策-->
+        <activity android:name=".me.Mepriage"/>
     </application>
 
 </manifest>

@@ -13,8 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".MainActivity"></activity>
-        <activity android:name=".teacherLecture.FragmentTeacherLecture"/>
+        <activity android:name=".activity.Agreement"></activity>
+        <activity android:name=".activity.Privacy" />
+        <activity android:name=".MainActivity" />
+        <activity android:name=".teacherLecture.FragmentTeacherLecture" />
         <activity android:name=".fragmentClass.FragmentArts" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
@@ -41,7 +43,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-
     </application>
 
 </manifest>

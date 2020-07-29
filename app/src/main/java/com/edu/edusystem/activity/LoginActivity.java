@@ -306,8 +306,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // 跳转到用户协议页面
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                startActivity(intent);
+
             }
         });
 
@@ -547,10 +546,12 @@ public class LoginActivity extends AppCompatActivity {
 
             SpannableStringBuilder spannableString = new SpannableStringBuilder();
             spannableString.append(str);
+            //点击隐私
             ClickableSpan clickableSpanpvy = new ClickableSpan() {
                 @Override
                 public void onClick(View view) {
-                    Log.i("ssssssssssss", "ces");
+                    Intent intent = new Intent(LoginActivity.this,Privacy.class);
+                    startActivity(intent);
                 }
 
                 public void updateDrawState(TextPaint ds) {
@@ -561,15 +562,16 @@ public class LoginActivity extends AppCompatActivity {
                 }
             };
 
-            //点击隐私
+
             spannableString.setSpan(clickableSpanpvy, star, star + 6, Spannable.SPAN_EXCLUSIVE_INCLUSIVE);
 
 
+            //点击用户协议
             ClickableSpan clickableSpanpcy = new ClickableSpan() {
                 @Override
                 public void onClick(@NonNull View view) {
-                    Toast.makeText(LoginActivity.this, "测试2", Toast.LENGTH_SHORT).show();
-
+                    Intent intent = new Intent(LoginActivity.this,Agreement.class);
+                    startActivity(intent);
                 }
 
                 public void updateDrawState(TextPaint ds) {
@@ -601,7 +603,7 @@ public class LoginActivity extends AppCompatActivity {
                     sp = getSharedPreferences("one", MODE_PRIVATE);
                     SharedPreferences.Editor editor = sp.edit();
                     editor.putBoolean("isFrist", false);
-                    editor.commit();
+                    editor.apply();
                     dialog.cancel();
                 }
             });

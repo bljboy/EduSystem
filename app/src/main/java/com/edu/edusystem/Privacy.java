@@ -1,18 +1,41 @@
 package com.edu.edusystem;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 //隐私政策
 public class Privacy extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.privacy);
+
+        Toolbar toolbar=findViewById(R.id.toolbar);//绑定toolbar
+        toolbar.setTitle("");
+        toolbar.setNavigationIcon(R.drawable.back);
+//        toolbar.setFitsSystemWindows(true);
+        if (Build.VERSION.SDK_INT >= 21) {//sdk21以上的沉浸式方法
+            View decorView = getWindow().getDecorView();
+            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN//？
+                    | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;//状态栏文字颜色
+            decorView.setSystemUiVisibility(option);
+            getWindow().setStatusBarColor(0);
+        }
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         TextView privacy_tv=findViewById(R.id.privacy_tv);
         String privacy="<font color=\"#000000\"><big><big>用户隐私政策</big></big></font><br>\n" +
                 "&nbsp;&nbsp;&nbsp;&nbsp;本平台包括但不限于通过有线或移动设备访问本平台的个人及企业的个人信息及隐私。鉴于您在使用我们的服务时,我们可能会收集和使用您的相关信息,为向您阐明用户信息收集、使用、共享、管理及保护的规则,特制定本《隐私政策》( 以下或称\"本政策”)。并特别提醒您:<br>\n" +

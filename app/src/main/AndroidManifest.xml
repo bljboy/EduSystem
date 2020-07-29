@@ -17,11 +17,8 @@
             </intent-filter>
         </activity>
         <!--登录界面-->
-        <activity android:name=".me.MeUserlogin"/>
         <!--注册界面-->
-        <activity android:name=".me.MeLoginsign"/>
         <!--忘记密码-->
-        <activity android:name=".me.MeLoginforget"/>
         <!--登录后跳转的布局-->
         <activity android:name=".me.MeAftlogin"/>
         <!--用户协议-->
@@ -30,6 +27,8 @@
         <activity android:name=".Privacy"/>
         <!--协议和隐私政策-->
         <activity android:name=".me.Mepriage"/>
+        <!--用户反馈-->
+        <activity android:name=".me.Mefeedback"/>
     </application>
 
 </manifest>

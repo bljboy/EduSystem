@@ -1,9 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--用户协议-->
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ffffff"
+        android:fitsSystemWindows="true">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:lines="1"
+            android:textColor="#000000"
+            android:ellipsize="end"
+            android:textSize="16dp"
+            android:text="用户协议"/>
+    </androidx.appcompat.widget.Toolbar>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp">
+
     <TextView
         android:id="@+id/agreement_tv"
         android:layout_width="match_parent"
@@ -11,3 +33,4 @@
         android:text=""
         />
 </ScrollView>
+</LinearLayout>

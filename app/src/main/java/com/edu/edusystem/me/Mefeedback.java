@@ -1,26 +1,26 @@
 package com.edu.edusystem.me;
 
-import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
-import android.view.KeyEvent;
 import android.view.View;
-import android.widget.LinearLayout;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
-import com.edu.edusystem.Agreement;
-import com.edu.edusystem.Privacy;
 import com.edu.edusystem.R;
 
-public class Mepriage extends AppCompatActivity {
-    private LinearLayout me_pry,me_age;//用户隐私政策 用户服务协议
+//用户反馈
+public class Mefeedback extends AppCompatActivity {
+    private EditText et_title,et_content;
+    private Button yes;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.me_pryage);
+        setContentView(R.layout.me_feedbake);
 
         Toolbar toolbar=findViewById(R.id.toolbar);//绑定toolbar
         toolbar.setTitle("");
@@ -40,29 +40,28 @@ public class Mepriage extends AppCompatActivity {
             }
         });
 
-        me_pry=findViewById(R.id.me_pry);
-        me_age=findViewById(R.id.me_age);
-        //隐私政策
-        me_pry.setOnClickListener(new View.OnClickListener() {
+        et_title=findViewById(R.id.et_title);
+        et_content=findViewById(R.id.et_content);
+        yes=findViewById(R.id.but);//提交按钮
+        yes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent it=new Intent(Mepriage.this, Privacy.class);
-                startActivity(it);
+                if(et_content.getText().toString().length()>0&&et_title.getText().toString().length()>0)
+                {
+                    finish();
+                    Toast.makeText(Mefeedback.this,"提交成功",Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    if(et_content.getText().toString().length()>0)
+                        Toast.makeText(Mefeedback.this,"请输入标题",Toast.LENGTH_SHORT).show();
+                    else if(et_title.getText().toString().length()>0)
+                        Toast.makeText(Mefeedback.this,"请输入内容",Toast.LENGTH_SHORT).show();
+                    else
+                    Toast.makeText(Mefeedback.this,"请输入",Toast.LENGTH_SHORT).show();
+                }
             }
         });
-        //服务协议
-        me_age.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent it=new Intent(Mepriage.this, Agreement.class);
-                startActivity(it);
-            }
-        });
-    }
 
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-        finish();
-        return super.onKeyDown(keyCode, event);
     }
 }

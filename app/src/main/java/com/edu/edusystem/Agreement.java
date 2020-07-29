@@ -1,18 +1,41 @@
 package com.edu.edusystem;
 
+import android.os.Build;
 import android.os.Bundle;
 import android.text.Html;
 import android.view.KeyEvent;
+import android.view.View;
 import android.widget.TextView;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+
 //用户协议
 public class Agreement extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.agreement);
+
+        Toolbar toolbar=findViewById(R.id.toolbar);//绑定toolbar
+        toolbar.setTitle("");
+        toolbar.setNavigationIcon(R.drawable.back);
+//        toolbar.setFitsSystemWindows(true);
+        if (Build.VERSION.SDK_INT >= 21) {//sdk21以上的沉浸式方法
+            View decorView = getWindow().getDecorView();
+            int option = View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN//？
+                    | View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;//状态栏文字颜色
+            decorView.setSystemUiVisibility(option);
+            getWindow().setStatusBarColor(0);
+        }
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+
         TextView agreement_tv=findViewById(R.id.agreement_tv);
         String agree="<font color=\"#000000\"><big><big>用户服务协议</big></big></font><br>\n" +
                 "<br>\n" +

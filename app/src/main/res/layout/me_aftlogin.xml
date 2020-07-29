@@ -9,6 +9,23 @@
     <!-- TODO: Update blank fragment layout -->
 
     <!--登录后界面-->
+    <!--菜单-->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:fitsSystemWindows="true">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:lines="1"
+        android:textColor="#000000"
+        android:ellipsize="end"
+        android:textSize="16dp"
+        android:text="个人信息"/>
+</androidx.appcompat.widget.Toolbar>
 
 
     <!--用户名-->
@@ -66,12 +83,6 @@
             android:textColor="#000000"
             android:textSize="18sp" />
 
-        <ImageView
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            android:padding="5dp"
-            android:src="@drawable/rightaw" />
     </LinearLayout>
 
     <!--年龄-->

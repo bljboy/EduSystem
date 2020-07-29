@@ -1,14 +1,11 @@
 package com.edu.edusystem.fragmentThree;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,9 +13,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.edu.edusystem.R;
-import com.edu.edusystem.dbtools.DBHelper;
 import com.edu.edusystem.me.MeAftlogin;
-import com.edu.edusystem.me.MeUserlogin;
+import com.edu.edusystem.me.Mefeedback;
 import com.edu.edusystem.me.Mepriage;
 
 
@@ -90,7 +86,8 @@ public class FragmentMe extends Fragment {
         me_feedback.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Intent it=new Intent(getActivity(), Mefeedback.class);
+                startActivity(it);
             }
         });
 

@@ -1,11 +1,14 @@
 package com.edu.edusystem.fragmentThree;
 
+import android.app.Activity;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,9 +16,11 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.edu.edusystem.R;
+import com.edu.edusystem.dbtools.CircleImageView;
 import com.edu.edusystem.me.MeAftlogin;
 import com.edu.edusystem.me.Mefeedback;
 import com.edu.edusystem.me.Mepriage;
+import com.squareup.picasso.Picasso;
 
 
 /**
@@ -35,8 +40,9 @@ public class FragmentMe extends Fragment {
     * 关注的老师
     * 隐私和政策
     **/
-    private Boolean whecher;//使用boolean判断
+    private SharedPreferences preferences;
     private TextView me_logtv;
+    private CircleImageView me_img;
 
 
     @Override
@@ -61,10 +67,24 @@ public class FragmentMe extends Fragment {
         me_followee=getActivity().findViewById(R.id.me_followee);//关注的老师
         me_pvypcy=getActivity().findViewById(R.id.me_pvypcy);//隐私和政策
         me_logtv=getActivity().findViewById(R.id.user_tv);//显示用户名
+        me_img=getActivity().findViewById(R.id.me_img);//头像
+        preferences=getActivity().getSharedPreferences("userInfo", Activity.MODE_PRIVATE);
+        String type,figureurl_qq,username;
+        type=preferences.getString("type","");
 
-
-
-        //登录注册
+        //加载图片url到ImageView
+        if(type.equals("2")) {
+            figureurl_qq=preferences.getString("figureurl_qq","");
+            Picasso.with(getContext()).load(figureurl_qq).into(me_img);
+            username=preferences.getString("nickname","");
+            me_logtv.setText(username);
+        }
+        if(type.equals("1"))
+        {
+            username=preferences.getString("user","");
+            me_logtv.setText(username);
+        }
+        //个人信息
         me_username.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

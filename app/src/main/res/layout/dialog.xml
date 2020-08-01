@@ -7,26 +7,17 @@
     android:layout_marginLeft="20dp"
     android:layout_marginRight="20dp">
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="用户协议与隐私政策"
-        android:layout_centerHorizontal="true"
-        android:textColor="#282828"
-        android:textSize="20sp"
-        android:textStyle="bold"
-        android:layout_marginTop="25dp"/>
+
 
     <TextView
         android:id="@+id/tv_1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/tv_title"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="15dp"
-        android:layout_marginTop="20dp"
-        android:text="内容呢"
+        android:layout_marginTop="35dp"
+        android:layout_centerHorizontal="true"
+        android:text="有更改未保存"
         android:textSize="16sp"
         android:textColor="#282828"
         android:lineSpacingMultiplier="1.2"
@@ -49,7 +40,7 @@
         android:id="@+id/tv_cancel"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="不同意"
+        android:text="不保存"
         android:textStyle="bold"
         android:textColor="#282828"
         android:layout_toLeftOf="@+id/view_2"
@@ -63,7 +54,7 @@
         android:id="@+id/tv_agree"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="同意并继续"
+        android:text="保存"
         android:textStyle="bold"
         android:textColor="#8BC34A"
         android:layout_toRightOf="@+id/view_2"

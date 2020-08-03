@@ -1,5 +1,11 @@
 apply plugin: 'com.android.application'
-
+// SMS添加插件
+apply plugin: 'com.mob.sdk'
+MobSDK {
+    appKey "303969cd2d056"
+    appSecret "e7999231f92b29e6dc19015b31dab8f2"
+    SMSSDK {}
+}
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.0"

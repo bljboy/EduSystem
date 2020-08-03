@@ -8,10 +8,12 @@
     <string name="syn_title_Selected_course">精选课程</string>
     <string name="syn_title_teacher_lecture">名师讲解</string>
     <string name="syn_title_answer_questions">答疑专区</string>
+
     <string-array name="bottomnavigationview__homepage_title">
         <item>@string/bottomnavigationview_homepage_title_syn</item>
         <item>@string/bottomnavigationview_homepage_title_class</item>
     </string-array>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

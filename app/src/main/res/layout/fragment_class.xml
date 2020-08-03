@@ -1,366 +1,348 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/class_SwipeRefreshLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragmenthomepage.FragmentClass">
 
-
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-        android:id="@+id/sw"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginTop="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        android:layout_height="match_parent">
 
-
-        <ScrollView
-            android:id="@+id/scrollView2"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tv">
+            android:layout_height="match_parent">
 
-            <androidx.constraintlayout.widget.ConstraintLayout
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/teacher_card1"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                tools:ignore="ScrollViewSize">
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:backgroundTint="#03A9F4"
+                app:cardElevation="3dp"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:ignore="MissingConstraints">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/class_arts_exam"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:backgroundTint="#03A9F4"
-                    app:cardElevation="2dp"
-                    app:layout_constraintBottom_toTopOf="@+id/class_china"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent"
-                    app:layout_constraintVertical_bias="0.01999998"
-                    tools:ignore="MissingConstraints">
+                    android:layout_height="match_parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="艺考"
-                            android:textSize="25sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-                </com.google.android.material.card.MaterialCardView>
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="艺考"
+                        android:textSize="25sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
 
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/class_china"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/teacher_card2"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:backgroundTint="#03A9F4"
+                app:cardElevation="3dp"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card3"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card1"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card1"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card1"
+                tools:ignore="MissingConstraints">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:backgroundTint="#03A9F4"
-                    app:cardElevation="2dp"
-                    app:layout_constraintBottom_toTopOf="@+id/class_math"
-                    app:layout_constraintEnd_toEndOf="@+id/class_arts_exam"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/class_arts_exam"
-                    app:layout_constraintTop_toBottomOf="@+id/class_arts_exam"
-                    tools:ignore="MissingConstraints">
+                    android:layout_height="match_parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="语文"
+                        android:textSize="25sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="语文"
-                            android:textSize="25sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/class_math"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/teacher_card3"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:backgroundTint="#03A9F4"
+                app:cardElevation="3dp"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card4"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card2"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card2"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card2"
+                tools:ignore="MissingConstraints">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:backgroundTint="#03A9F4"
-                    app:cardElevation="2dp"
-                    app:layout_constraintBottom_toTopOf="@+id/class_english"
-                    app:layout_constraintEnd_toEndOf="@+id/class_china"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/class_china"
-                    app:layout_constraintTop_toBottomOf="@+id/class_china"
-                    tools:ignore="MissingConstraints">
+                    android:layout_height="match_parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="数学"
+                        android:textSize="25sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="数学"
-                            android:textSize="25sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/class_english"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/teacher_card4"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:backgroundTint="#03A9F4"
+                app:cardElevation="3dp"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card5"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card3"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card3"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card3"
+                tools:ignore="MissingConstraints">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:backgroundTint="#03A9F4"
-                    app:cardElevation="2dp"
-                    app:layout_constraintBottom_toTopOf="@+id/class_physics"
-                    app:layout_constraintEnd_toEndOf="@+id/class_math"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/class_math"
-                    app:layout_constraintTop_toBottomOf="@+id/class_math"
-                    tools:ignore="MissingConstraints">
+                    android:layout_height="match_parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="英语"
+                        android:textSize="25sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="英语"
-                            android:textSize="25sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/class_physics"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/teacher_card5"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:backgroundTint="#03A9F4"
+                app:cardElevation="3dp"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card6"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card4"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card4"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card4"
+                tools:ignore="MissingConstraints">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:backgroundTint="#03A9F4"
-                    app:cardElevation="2dp"
-                    app:layout_constraintBottom_toTopOf="@+id/class_chemistry"
-                    app:layout_constraintEnd_toEndOf="@+id/class_english"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/class_english"
-                    app:layout_constraintTop_toBottomOf="@+id/class_english"
-                    tools:ignore="MissingConstraints">
+                    android:layout_height="match_parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="物理"
+                        android:textSize="25sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="物理"
-                            android:textSize="25sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/class_chemistry"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/teacher_card6"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:backgroundTint="#03A9F4"
+                app:cardElevation="3dp"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card7"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card5"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card5"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card5"
+                tools:ignore="MissingConstraints">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:backgroundTint="#03A9F4"
-                    app:cardElevation="2dp"
-                    app:layout_constraintBottom_toTopOf="@+id/class_biology"
-                    app:layout_constraintEnd_toEndOf="@+id/class_physics"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/class_physics"
-                    app:layout_constraintTop_toBottomOf="@+id/class_physics"
-                    tools:ignore="MissingConstraints">
+                    android:layout_height="match_parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="化学"
+                        android:textSize="25sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="化学"
-                            android:textSize="25sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/teacher_card7"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:backgroundTint="#03A9F4"
+                app:cardElevation="3dp"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card8"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card6"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card6"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card6"
+                tools:ignore="MissingConstraints">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/class_biology"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:backgroundTint="#03A9F4"
-                    app:cardElevation="2dp"
-                    app:layout_constraintBottom_toTopOf="@+id/class_history"
-                    app:layout_constraintEnd_toEndOf="@+id/class_chemistry"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/class_chemistry"
-                    app:layout_constraintTop_toBottomOf="@+id/class_chemistry"
-                    tools:ignore="MissingConstraints">
+                    android:layout_height="match_parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="生物"
+                        android:textSize="25sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="生物"
-                            android:textSize="25sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
-
-                </com.google.android.material.card.MaterialCardView>
+            </com.google.android.material.card.MaterialCardView>
 
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/class_history"
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/teacher_card8"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:backgroundTint="#03A9F4"
+                app:cardElevation="3dp"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card9"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card7"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card7"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card7"
+                tools:ignore="MissingConstraints">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:backgroundTint="#03A9F4"
-                    app:cardElevation="2dp"
-                    app:layout_constraintBottom_toTopOf="@+id/class_politics"
-                    app:layout_constraintEnd_toEndOf="@+id/class_biology"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/class_biology"
-                    app:layout_constraintTop_toBottomOf="@+id/class_biology"
-                    tools:ignore="MissingConstraints">
+                    android:layout_height="match_parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="历史"
+                        android:textSize="25sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="历史"
-                            android:textSize="25sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/teacher_card9"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:backgroundTint="#03A9F4"
+                app:cardElevation="3dp"
+                app:layout_constraintBottom_toTopOf="@+id/teacher_card10"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card8"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card8"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card8"
+                tools:ignore="MissingConstraints">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/class_politics"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:backgroundTint="#03A9F4"
-                    app:cardElevation="2dp"
-                    app:layout_constraintBottom_toTopOf="@+id/class_geography"
-                    app:layout_constraintEnd_toEndOf="@+id/class_history"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/class_history"
-                    app:layout_constraintTop_toBottomOf="@+id/class_history"
-                    tools:ignore="MissingConstraints">
+                    android:layout_height="match_parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="政治"
+                        android:textSize="25sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="政治"
-                            android:textSize="25sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                </com.google.android.material.card.MaterialCardView>
+            <com.google.android.material.card.MaterialCardView
+                android:id="@+id/teacher_card10"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_margin="8dp"
+                android:layout_marginBottom="20dp"
+                android:backgroundTint="#03A9F4"
+                app:cardElevation="3dp"
+                app:layout_constraintBottom_toTopOf="@+id/guideline"
+                app:layout_constraintEnd_toEndOf="@+id/teacher_card9"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="@+id/teacher_card9"
+                app:layout_constraintTop_toBottomOf="@+id/teacher_card9"
+                tools:ignore="MissingConstraints,NotSibling">
 
-                <com.google.android.material.card.MaterialCardView
-                    android:id="@+id/class_geography"
+                <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="100dp"
-                    android:layout_margin="8dp"
-                    android:layout_marginBottom="20dp"
-                    android:backgroundTint="#03A9F4"
-                    app:cardElevation="2dp"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline"
-                    app:layout_constraintEnd_toEndOf="@+id/class_politics"
-                    app:layout_constraintHorizontal_bias="0.5"
-                    app:layout_constraintStart_toStartOf="@+id/class_politics"
-                    app:layout_constraintTop_toBottomOf="@+id/class_politics"
-                    tools:ignore="MissingConstraints,NotSibling">
+                    android:layout_height="match_parent">
 
-                    <androidx.constraintlayout.widget.ConstraintLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="地理"
+                        android:textSize="25sp"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="地理"
-                            android:textSize="25sp"
-                            app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="parent"
-                            app:layout_constraintTop_toTopOf="parent" />
-                    </androidx.constraintlayout.widget.ConstraintLayout>
+            </com.google.android.material.card.MaterialCardView>
 
-                </com.google.android.material.card.MaterialCardView>
-
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_percent="0.95" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.95" />
 
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        </ScrollView>
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+    </ScrollView>
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

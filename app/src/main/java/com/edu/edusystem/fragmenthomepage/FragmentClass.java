@@ -17,6 +17,7 @@ import com.edu.edusystem.fragmentClass.FragmentArts;
 import com.google.android.material.card.MaterialCardView;
 
 
+//
 public class FragmentClass extends Fragment implements View.OnClickListener,SwipeRefreshLayout.OnRefreshListener{
 //    @Override
 //    public void onCreate(Bundle savedInstanceState) {
@@ -34,7 +35,6 @@ public class FragmentClass extends Fragment implements View.OnClickListener,Swip
     private MaterialCardView class_geography; // 地理
     private SwipeRefreshLayout class_SwipeRefreshLayout;
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -44,7 +44,6 @@ public class FragmentClass extends Fragment implements View.OnClickListener,Swip
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        // 控件绑定
         initView();
 
         //事件绑定

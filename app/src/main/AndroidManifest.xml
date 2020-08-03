@@ -13,21 +13,23 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".teacherLecture.FragmentTeacherLecture"/>
+        <activity android:name=".MainActivity" />
         <activity android:name=".fragmentClass.FragmentArts" />
+        <activity android:name=".fragmentsyn.SynSelectedCourseFragmentJump"/>
+        <activity android:name=".teacherLecture.FragmentTeacherLecture"/>
+
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"
             android:noHistory="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW" />
-
                 <category android:name="android.intent.category.DEFAULT" />
                 <category android:name="android.intent.category.BROWSABLE" />
-
                 <data android:scheme="tencent101890397" />
             </intent-filter>
         </activity>
+
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
             android:configChanges="orientation|keyboardHidden"
@@ -40,19 +42,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".fragmentsyn.SynSelectedCourseFragmentJump"/>
-        <activity android:name=".MainActivity"></activity>
-
-
-        <!--登录界面-->
-        <activity android:name=".me.MeUserlogin"/>
-        <!--注册界面-->
-        <activity android:name=".me.MeLoginsign"/>
-        <!--忘记密码-->
-        <activity android:name=".me.MeLoginforget"/>
-        <!--登录后跳转的布局-->
-        <activity android:name=".me.MeAftlogin"/>
-
+        <uses-library android:name="org.apache.http.legacy" android:required="false" />
     </application>
 
 </manifest>

@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!-- 底部退出提示颜色 -->
+    <color name="backSnackBarColor">#31343B</color>
+
     <color name="colorPrimary">#4FC3F7</color>
     <color name="colorPrimaryDark">#ADADAD</color>
     <color name="colorAccent">#4FC3F7</color>

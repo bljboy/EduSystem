@@ -1,10 +1,12 @@
 package com.edu.edusystem.fragmentThree;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.util.Log;
@@ -20,20 +22,18 @@ import com.edu.edusystem.R;
 import com.edu.edusystem.me.MeUserlogin;
 import com.edu.edusystem.tools.DBHelper;
 
-import org.jetbrains.annotations.Nullable;
-
 
 public class FragmentMe extends Fragment {
 
-    private LinearLayout me_username,me_favorite,me_feedback,me_followee,me_pvypcy;
+    private LinearLayout me_username, me_favorite, me_feedback, me_followee, me_pvypcy;
     /**
      * 定义
-    * 注册登录按钮
-    * 我的收藏
+     * 注册登录按钮
+     * 我的收藏
      * 用户反馈
-    * 关注的老师
-    * 隐私和政策
-    **/
+     * 关注的老师
+     * 隐私和政策
+     **/
     private Boolean whecher;//使用boolean判断
     private SharedPreferences sharedPreferences;//是否登录
     private TextView me_logtv;
@@ -57,19 +57,18 @@ public class FragmentMe extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        dbHelper=new DBHelper();
-        Log.i("数据库连接","sssssssssssssssss");
-        me_username=getActivity().findViewById(R.id.me_user);//user
-        me_favorite=getActivity().findViewById(R.id.me_favorite);//我的收藏
-        me_feedback=getActivity().findViewById(R.id.me_feedback);//用户反馈
-        me_followee=getActivity().findViewById(R.id.me_followee);//关注的老师
-        me_pvypcy=getActivity().findViewById(R.id.me_pvypcy);//隐私和政策
-        me_logtv=getActivity().findViewById(R.id.user_tv);//显示用户名
+        dbHelper = new DBHelper();
+        Log.i("数据库连接", "sssssssssssssssss");
+        me_username = getActivity().findViewById(R.id.me_user);//user
+        me_favorite = getActivity().findViewById(R.id.me_favorite);//我的收藏
+        me_feedback = getActivity().findViewById(R.id.me_feedback);//用户反馈
+        me_followee = getActivity().findViewById(R.id.me_followee);//关注的老师
+        me_pvypcy = getActivity().findViewById(R.id.me_pvypcy);//隐私和政策
+        me_logtv = getActivity().findViewById(R.id.user_tv);//显示用户名
 
-        sharedPreferences=getActivity().getSharedPreferences("ON", Context.MODE_PRIVATE);
-        final SharedPreferences.Editor editor=sharedPreferences.edit();
-        if(sharedPreferences.getBoolean("on",false))
-        {
+        sharedPreferences = getActivity().getSharedPreferences("ON", Context.MODE_PRIVATE);
+        @SuppressLint("CommitPrefEdits") final SharedPreferences.Editor editor = sharedPreferences.edit();
+        if (sharedPreferences.getBoolean("on", false)) {
 
         }
 
@@ -78,14 +77,11 @@ public class FragmentMe extends Fragment {
         me_username.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(sharedPreferences.getBoolean("on",false))
-                {
+                if (sharedPreferences.getBoolean("on", false)) {
                     Intent it = new Intent(getActivity(), MeUserlogin.class);
                     startActivity(it);
-                }
-                else
-                {
-                    editor.putBoolean("on",false);
+                } else {
+                    editor.putBoolean("on", false);
                     Intent it = new Intent(getActivity(), MeUserlogin.class);
                     startActivity(it);
                 }

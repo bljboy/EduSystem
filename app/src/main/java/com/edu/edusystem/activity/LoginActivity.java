@@ -96,8 +96,8 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString("type", "1"); // 1是手机号登录
-        editor.putString("user", phone);
-        editor.putString("favorite_teacher", favorite_teacher_json);
+        editor.putString("user", phone);// 手机号
+        editor.putString("favorite_teacher", favorite_teacher_json); // 用户喜欢的老师json格式数据
         editor.apply();
 
 
@@ -390,7 +390,7 @@ public class LoginActivity extends AppCompatActivity {
                             final String nickname = obj.getString("nickname");
                             final String sex = obj.getString("gender"); //性别
                             String year = obj.getString("year"); // 生日年
-                            String figureurl_qq_1 = obj.getString("figureurl_qq_1");
+                            final String figureurl_qq_1 = obj.getString("figureurl_qq_1");
                             final String figureurl_qq_2 = obj.getString("figureurl_qq_2");
                             @SuppressLint("SimpleDateFormat")
                             SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
@@ -440,15 +440,15 @@ public class LoginActivity extends AppCompatActivity {
                                     SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sp.edit();
                                     editor.putString("type", "2");// 2是QQ登录
-                                    editor.putString("openId", openID);// id
-                                    editor.putString("nickname", nickname); // 昵称
+                                    editor.putString("openId", openID);// QQ_openid
+                                    editor.putString("user", nickname); // QQ昵称
                                     editor.putString("sex", sex); //性别
                                     editor.putString("age", age); //年龄
-                                    editor.putString("favorite_teacher", favorite_teacher_json);
+                                    editor.putString("favorite_teacher", favorite_teacher_json); // 用户喜欢的老师json数据
                                     if (figureurl_qq_2.equals("") || figureurl_qq_2 == null) {
-                                        editor.putString("figureurl_qq_1", figureurl_qq_2);
+                                        editor.putString("figureurl_qq", figureurl_qq_1); // QQ头像
                                     } else {
-                                        editor.putString("figureurl_qq_2", figureurl_qq_2);
+                                        editor.putString("figureurl_qq", figureurl_qq_2); // QQ头像
                                     }
                                     editor.apply();
                                 }

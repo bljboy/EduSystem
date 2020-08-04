@@ -13,6 +13,7 @@ import com.edu.edusystem.fragmentAdapter.FragmentAdapter;
 import com.edu.edusystem.fragmentThree.FragmentHomePage;
 import com.edu.edusystem.fragmentThree.FragmentMe;
 import com.edu.edusystem.fragmentThree.FragmentStudy;
+import com.edu.edusystem.tools.MyStyle;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.snackbar.Snackbar;
 
@@ -33,6 +34,8 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        //设置沉浸式状态栏
+        //new MyStyle(this,R.color.statusBar);
         bottomNavigationView = findViewById(R.id.main_bottomNavigationView);
         initData();
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {

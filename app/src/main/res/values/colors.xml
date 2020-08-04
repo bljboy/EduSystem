@@ -5,6 +5,9 @@
     <color name="backSnackBarColor">#31343B</color>
 
     <color name="colorPrimary">#4FC3F7</color>
-    <color name="colorPrimaryDark">#ADADAD</color>
+    <color name="colorPrimaryDark">#FFFFFF</color>
     <color name="colorAccent">#4FC3F7</color>
+
+    <!--  顶部状态栏颜色  -->
+    <color name="statusBar">#FFFFFF</color>
 </resources>

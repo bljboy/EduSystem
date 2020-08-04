@@ -11,6 +11,9 @@
         <!-- 设置activity切换动画 -->
         <item name="android:windowAnimationStyle">@style/activityAnimation</item>
 
+        <!-- 系统状态栏为黑色，沉浸式 -->
+        <item name="android:windowLightStatusBar">true</item>
+
     </style>
 
     <!-- animation 样式 -->

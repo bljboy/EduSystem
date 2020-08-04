@@ -391,7 +391,7 @@ public class LoginActivity extends AppCompatActivity {
                             final String nickname = obj.getString("nickname");
                             final String sex = obj.getString("gender"); //性别
                             String year = obj.getString("year"); // 生日年
-                            String figureurl_qq_1 = obj.getString("figureurl_qq_1");
+                            final String figureurl_qq_1 = obj.getString("figureurl_qq_1");
                             final String figureurl_qq_2 = obj.getString("figureurl_qq_2");
                             @SuppressLint("SimpleDateFormat")
                             SimpleDateFormat sdf = new SimpleDateFormat("yyyy");
@@ -447,9 +447,9 @@ public class LoginActivity extends AppCompatActivity {
                                     editor.putString("age", age); //年龄
                                     editor.putString("favorite_teacher", favorite_teacher_json);
                                     if (figureurl_qq_2.equals("") || figureurl_qq_2 == null) {
-                                        editor.putString("figureurl_qq_1", figureurl_qq_2);
+                                        editor.putString("figureurl_qq", figureurl_qq_1);
                                     } else {
-                                        editor.putString("figureurl_qq_2", figureurl_qq_2);
+                                        editor.putString("figureurl_qq", figureurl_qq_2);
                                     }
                                     editor.apply();
                                 }

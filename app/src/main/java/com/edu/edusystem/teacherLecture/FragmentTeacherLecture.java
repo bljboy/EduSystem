@@ -58,32 +58,46 @@ public class FragmentTeacherLecture extends FragmentActivity implements View.OnC
             attention_imageViews[i].setOnClickListener(this);
         }
 
-        // 获取保存的用户信息
-        SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
-        type = sp.getString("type","");
+        new Thread(){
+            @Override
+            public void run() {
+                // 获取保存的用户信息
+                SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+                type = sp.getString("type","");
 
-        String json = sp.getString("favorite_teacher","");
-        try {
-            favoriteJsonObject = (JsonObject) new JsonParser().parse(json);
-            favoriteArray = favoriteJsonObject.getAsJsonArray("data");
-        } catch (ClassCastException e){
-            Log.e(TAG,"本地没有保存用户喜欢的老师信息");
-        }
+                String json = sp.getString("favorite_teacher","");
+                try {
+                    favoriteJsonObject = (JsonObject) new JsonParser().parse(json);
+                    favoriteArray = favoriteJsonObject.getAsJsonArray("data");
+                } catch (ClassCastException e){
+                    Log.e(TAG,"本地没有保存用户喜欢的老师信息");
+                }
 
-        if(type.equals("1")){ // 如果是手机号登录
-            user = sp.getString("user",""); // 获取用户手机号
-        }else if(type.equals("2")) { // 如果是QQ号登录
-            user = sp.getString("openId",""); // 获取QQ登录用户的openId
-        }
+                if(type.equals("1")){ // 如果是手机号登录
+                    user = sp.getString("user",""); // 获取用户手机号
+                }else if(type.equals("2")) { // 如果是QQ号登录
+                    user = sp.getString("openId",""); // 获取QQ登录用户的openId
+                }
 
-        for (int i =0;i<favoriteArray.size();i++){
-            JsonObject object = (JsonObject) favoriteArray.get(i);
-            String string = object.get("teacher").getAsString();
-            int index = Integer.parseInt(string.substring(string.length()-1));
-            attention_imageViews[index-1].setBackgroundResource(R.drawable.favorite_yes);
-            is_yes[index-1] = true;
+                for (int i =0;i<favoriteArray.size();i++){
+                    JsonObject object = (JsonObject) favoriteArray.get(i);
+                    String string = object.get("teacher").getAsString();
+                    final int index = Integer.parseInt(string.substring(string.length()-1));
+                    is_yes[index-1] = true;
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            attention_imageViews[index-1].setBackgroundResource(R.drawable.favorite_yes);
 
-        }
+                        }
+                    });
+
+
+                }
+
+            }
+        }.start();
+
 
         teacher_lecture_SwipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
             @Override

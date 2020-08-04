@@ -182,8 +182,8 @@ public class LoginActivity extends AppCompatActivity {
                                 //Toast.makeText(LoginActivity.this, "验证成功", Toast.LENGTH_SHORT).show();
 
                                 //保存用户输入的手机号到用户表
-                                String sql = "insert into user_table(phone,favorite_teacher) values (?,?)";
-                                Object[] objects = new Object[]{phone, "{\"data\":[]}"};
+                                String sql = "insert into user_table(phone,favorite_teacher,favorite_course) values (?,?,?)";
+                                Object[] objects = new Object[]{phone, "{\"data\":[]}","{\"data\":[]}"};
                                 executeSQL(sql, objects);
 
 
@@ -413,8 +413,8 @@ public class LoginActivity extends AppCompatActivity {
                                 public void run() {
 
                                     //保存QQ登录用户信息到用户表
-                                    String sql = "insert into user_table(username,sex,age,qq_openid,favorite_teacher) values (?,?,?,?,?)";
-                                    Object[] objects = new Object[]{nickname, sex, age, openID, "{\"data\":[]}"};
+                                    String sql = "insert into user_table(username,sex,age,qq_openid,favorite_teacher,favorite_course) values (?,?,?,?,?,?)";
+                                    Object[] objects = new Object[]{nickname, sex, age, openID, "{\"data\":[]}","{\"data\":[]}"};
                                     DBHelper.Update(sql,objects);
 
                                 }

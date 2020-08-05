@@ -51,20 +51,10 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
         preferences=getSharedPreferences("userInfo",MODE_PRIVATE);//数据读取
         editor=preferences.edit();
         type=preferences.getString("type","");
-        if(type.equals("1"))
-        {
-            name=preferences.getString("user","");
-            sex=preferences.getString("sex","");
-            age=preferences.getString("age","");
-        }
-        else if(type.equals("2"))
-        {
-            name=preferences.getString("nickname","");
-            sex=preferences.getString("sex","");
-            age=preferences.getString("age","");
-        }
-        else
-            Toast.makeText(MeAftlogin.this,"数据读取error",Toast.LENGTH_SHORT).show();
+        name=preferences.getString("user","");
+        sex=preferences.getString("sex","");
+        age=preferences.getString("age","");
+
         aft_user.setText(name);
         aft_sex.setText(sex);
         aft_age.setText(age);
@@ -83,9 +73,13 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(name.equals(aft_user.getText().toString())||sex.equals(aft_sex.getText().toString())||age.equals(aft_age.getText().toString()))
+                name=preferences.getString("user","");
+                sex=preferences.getString("sex","");
+                age=preferences.getString("age","");
+                if(name.equals(aft_user.getText().toString())&&sex.equals(aft_sex.getText().toString())&&age.equals(aft_age.getText().toString()))
+                    finish();
+                else
                     showdialog();
-                finish();
             }
         });
 
@@ -125,7 +119,7 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
                     public void run() {
                         String sql="";
                         String id="";
-                        if(type.length()>0) {
+
                             if (type.equals("1")) {
                                 sql = "update user_table set username=? sex=? age=? where phone=?";
                                 id = preferences.getString("phone", "");
@@ -136,22 +130,19 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
                                 id = preferences.getString("openId", "");
                                 editor.putString("openId",id);
                             }
-                            name=aft_user.getText().toString().trim();
-                            sex=aft_sex.getText().toString().trim();
-                            age=aft_age.getText().toString().trim();
+                            name=aft_user.getText().toString();
+                            sex=aft_sex.getText().toString();
+                            age=aft_age.getText().toString();
                             Object[] objects=new Object[]{name,sex,age,id};
-                            DBHelper.Update(sql,objects);
-                            editor.putString("name",aft_user.getText().toString().trim());
-                            editor.putString("sex",aft_sex.getText().toString().trim());
-                            editor.putString("age",aft_age.getText().toString().trim());
+                            if(sql!="")  DBHelper.Update(sql,objects);//数据写入
+                            editor.putString("name",aft_user.getText().toString());
+                            editor.putString("sex",aft_sex.getText().toString());
+                            editor.putString("age",aft_age.getText().toString());
                             editor.apply();
-                        }
-                        else
-                            Toast.makeText(MeAftlogin.this,"Error",Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
 
                     }
                 }).start();
+                Toast.makeText(MeAftlogin.this,"保存成功",Toast.LENGTH_SHORT).show();
                 break;
             case R.id.me_aft_quit:
                 editor.clear();
@@ -163,10 +154,17 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
 
     @Override
     public boolean onKeyDown(int keyCode, KeyEvent event) {
-        if(name.equals(aft_user.getText().toString())||sex.equals(aft_sex.getText().toString())||age.equals(aft_age.getText().toString()))
-            showdialog();
-        finish();
-        return super.onKeyDown(keyCode, event);
+        if (keyCode==KeyEvent.KEYCODE_BACK) {
+
+            name = preferences.getString("user", "");
+            sex = preferences.getString("sex", "");
+            age = preferences.getString("age", "");
+            if (name.equals(aft_user.getText().toString()) && sex.equals(aft_sex.getText().toString()) && age.equals(aft_age.getText().toString()))
+                finish();
+            else
+                showdialog();
+        }
+        return false;
     }
 
     public  void showdialog(){
@@ -200,7 +198,7 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
                     public void run() {
                         String sql="";
                         String id="";
-                        if(type.length()>0) {
+
                             if (type.equals("1")) {
                                 sql = "update user_table set username=? sex=? age=? where phone=?";
                                 id = preferences.getString("phone", "");
@@ -211,22 +209,25 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
                                 id = preferences.getString("openId", "");
                                 editor.putString("openId",id);
                             }
-                            name=aft_user.getText().toString().trim();
-                            sex=aft_sex.getText().toString().trim();
-                            age=aft_age.getText().toString().trim();
+                            name=aft_user.getText().toString();
+                            sex=aft_sex.getText().toString();
+                            age=aft_age.getText().toString();
                             Object[] objects=new Object[]{name,sex,age,id};
+                            if(sql!="")
                             DBHelper.Update(sql,objects);
-                            editor.putString("name",aft_user.getText().toString().trim());
-                            editor.putString("sex",aft_sex.getText().toString().trim());
-                            editor.putString("age",aft_age.getText().toString().trim());
+                            editor.putString("name",aft_user.getText().toString());
+                            editor.putString("sex",aft_sex.getText().toString());
+                            editor.putString("age",aft_age.getText().toString());
                             editor.apply();
-                        }
-                        else
-                            Toast.makeText(MeAftlogin.this,"Error",Toast.LENGTH_SHORT).show();
-                        dialog.dismiss();
+
+//                        else
+//                            Toast.makeText(MeAftlogin.this,"Error",Toast.LENGTH_SHORT).show();使用toast报错
+//                        由于type不可能为空这个bug不急于解决
 
                     }
                 }).start();
+                dialog.cancel();
+                finish();
             }
 
         });
@@ -234,7 +235,8 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
 		tv_cancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                dialog.dismiss();
+                dialog.cancel();
+                finish();
             }
         });
     }

@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.edu.edusystem.R;
 import com.edu.edusystem.dbtools.CircleImageView;
@@ -98,7 +99,7 @@ public class FragmentMe extends Fragment {
         me_favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Toast.makeText(getActivity(),"功能未开发",Toast.LENGTH_SHORT).show();
             }
         });
 
@@ -115,7 +116,7 @@ public class FragmentMe extends Fragment {
         me_followee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                Toast.makeText(getActivity(),"功能未开发",Toast.LENGTH_SHORT).show();
             }
         });
 

@@ -5,29 +5,32 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".fragmentThree.FragmentStudy">
+    tools:context=".stu_knowledgepoint">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:navigationIcon="@drawable/back"
         android:background="#ffffff"
         android:fitsSystemWindows="true">
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:ellipsize="end"
             android:lines="1"
-            android:text="学习"
             android:textColor="#000000"
-            android:textSize="25dp" />
+            android:ellipsize="end"
+            android:textSize="25dp"
+            android:text="日积月累"/>
     </androidx.appcompat.widget.Toolbar>
 
     <ListView
-        android:id="@+id/stu_home"
+        android:id="@+id/stu_Knowledgepoint_listview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:scrollingCache="false"
+        android:fadingEdge="none"
+        android:scrollbars="none"/>
 
 </LinearLayout>

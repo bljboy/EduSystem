@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,7 +11,7 @@
         android:layout_weight="1">
 
         <TextView
-            android:id="@+id/stu_item_MentoringCommunity_title"
+            android:id="@+id/title"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="TextView"
@@ -21,7 +21,7 @@
             android:layout_marginTop="10dp"/>
 
         <TextView
-            android:id="@+id/stu_item_MentoringCommunity_heatrate"
+            android:id="@+id/heatrate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="336已读"
@@ -42,6 +42,7 @@
             android:id="@+id/imageView"
             android:layout_width="80dp"
             android:layout_height="80dp"
-            app:srcCompat="@drawable/w1" />
+            app:srcCompat="@drawable/community" />
     </LinearLayout>
+
 </LinearLayout>

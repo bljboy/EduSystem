@@ -434,7 +434,7 @@ public class LoginActivity extends AppCompatActivity {
                                     for (HashMap<String, Object> map : list) {
                                         favorite_teacher_json = (String) map.get("favorite_teacher");
                                     }
-
+                                    
                                     Log.i("favorite_teacher>>>>>>>>>>", favorite_teacher_json);
 
                                     SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);

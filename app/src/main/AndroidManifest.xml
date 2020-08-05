@@ -20,6 +20,13 @@
         <activity android:name=".me.MeAftlogin" />
         <activity android:name=".me.Mefeedback" />
         <activity android:name=".me.Mepriage" />
+        <!---Pengcl -->
+        <activity android:name=".fragment_study.stu_community" />
+        <activity android:name=".fragment_study.stu_community_details" />
+        <activity android:name=".fragment_study.stu_course" />
+        <activity android:name=".fragment_study.stu_knowledgepoint" />
+        <activity android:name=".fragment_study.stu_knowledgepoint_details" />
+        <!---Pengcl -->
         <!-- .activity-->
         <activity android:name="Privacy" />
         <activity android:name="Agreement" />

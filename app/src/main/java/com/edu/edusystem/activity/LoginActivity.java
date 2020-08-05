@@ -436,13 +436,13 @@ public class LoginActivity extends AppCompatActivity {
                                         favorite_teacher_json = (String) map.get("favorite_teacher");
                                     }
 
-                                    Log.i("favorite_teacher>>>>>>>>>>", favorite_teacher_json);
+//                                    Log.i("favorite_teacher>>>>>>>>>>", favorite_teacher_json);
 
                                     SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sp.edit();
                                     editor.putString("type", "2");// 2是QQ登录
                                     editor.putString("openId", openID);// id
-                                    editor.putString("nickname", nickname); // 昵称
+                                    editor.putString("user", nickname); // 昵称
                                     editor.putString("sex", sex); //性别
                                     editor.putString("age", age); //年龄
                                     editor.putString("favorite_teacher", favorite_teacher_json);

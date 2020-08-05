@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.edu.edusystem.R;
+import com.edu.edusystem.teacherLecture.FragmentTeacherLecture;
 import com.edu.edusystem.tools.CircleImageView;
 import com.edu.edusystem.me.MeAftlogin;
 import com.edu.edusystem.me.Mefeedback;
@@ -48,6 +49,13 @@ public class FragmentMe extends Fragment {
 
 
     @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        String user = data.getStringExtra("user");
+        me_logtv.setText(user);
+    }
+
+    @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
@@ -62,7 +70,6 @@ public class FragmentMe extends Fragment {
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-
         me_username = getActivity().findViewById(R.id.me_user);//user
         me_favorite = getActivity().findViewById(R.id.me_favorite);//我的收藏
         me_feedback = getActivity().findViewById(R.id.me_feedback);//用户反馈
@@ -77,9 +84,9 @@ public class FragmentMe extends Fragment {
         //加载图片url到ImageView
         if (type.equals("2")) {
             figureurl_qq = preferences.getString("figureurl_qq", "");
-            Log.i("figureurl_qq>>>>>","figureurl_qq///////"+figureurl_qq);
+            Log.i("figureurl_qq>>>>>","figureurl_qq"+figureurl_qq);
             Picasso.with(getContext()).load(figureurl_qq).into(me_img);
-            username = preferences.getString("nickname", "");
+            username = preferences.getString("user", "");
             me_logtv.setText(username);
         }
         if (type.equals("1")) {
@@ -91,7 +98,7 @@ public class FragmentMe extends Fragment {
             @Override
             public void onClick(View view) {
                 Intent it = new Intent(getActivity(), MeAftlogin.class);
-                startActivity(it);
+                startActivityForResult(it,1);
 
             }
         });
@@ -117,7 +124,8 @@ public class FragmentMe extends Fragment {
         me_followee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"功能未开发",Toast.LENGTH_SHORT).show();
+                Intent it=new Intent(getActivity(), FragmentTeacherLecture.class);
+                startActivity(it);
             }
         });
 
@@ -130,4 +138,6 @@ public class FragmentMe extends Fragment {
             }
         });
     }
+
+
 }

@@ -2,9 +2,11 @@ package com.edu.edusystem.me;
 
 import android.app.AlertDialog;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Build;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.view.Window;
@@ -119,7 +121,6 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
                     public void run() {
                         String sql="";
                         String id="";
-
                             if (type.equals("1")) {
                                 sql = "update user_table set username=? sex=? age=? where phone=?";
                                 id = preferences.getString("phone", "");
@@ -200,12 +201,12 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
                         String id="";
 
                             if (type.equals("1")) {
-                                sql = "update user_table set username=? sex=? age=? where phone=?";
+                                sql = "update user_table set username=?, sex=?, age=? where phone=?";
                                 id = preferences.getString("phone", "");
                                 editor.putString("phone",id);
                             }
                             if (type.equals("2")) {
-                                sql = "update user_table set username=? sex=? age=? where qq_opendid=?";
+                                sql = "update user_table set username=?, sex=?, age=? where qq_openid=?";
                                 id = preferences.getString("openId", "");
                                 editor.putString("openId",id);
                             }
@@ -227,6 +228,9 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
                     }
                 }).start();
                 dialog.cancel();
+                Intent it=getIntent();
+                it.putExtra("user",name);
+                setResult(1,it);
                 finish();
             }
 

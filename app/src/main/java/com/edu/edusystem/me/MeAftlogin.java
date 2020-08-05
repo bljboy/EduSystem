@@ -135,7 +135,7 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
                             age=aft_age.getText().toString();
                             Object[] objects=new Object[]{name,sex,age,id};
                             if(sql!="")  DBHelper.Update(sql,objects);//数据写入
-                            editor.putString("name",aft_user.getText().toString());
+                            editor.putString("user",aft_user.getText().toString());
                             editor.putString("sex",aft_sex.getText().toString());
                             editor.putString("age",aft_age.getText().toString());
                             editor.apply();
@@ -215,7 +215,7 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
                             Object[] objects=new Object[]{name,sex,age,id};
                             if(sql!="")
                             DBHelper.Update(sql,objects);
-                            editor.putString("name",aft_user.getText().toString());
+                            editor.putString("user",aft_user.getText().toString());
                             editor.putString("sex",aft_sex.getText().toString());
                             editor.putString("age",aft_age.getText().toString());
                             editor.apply();

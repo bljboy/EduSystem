@@ -31,7 +31,7 @@ public class stu_community extends AppCompatActivity {
         lv=findViewById(R.id.listview);
 
         //数据源
-        String[] tille= stu_data.community_title;//标题，显示在item
+        String[] tille= stu_data.title;//标题，显示在item
         String[] heatrate= stu_data.heatrate;
         List<Map<String, Object>> listitem = new ArrayList<Map<String, Object>>();
         for (int i = 0; i < tille.length; i++) {

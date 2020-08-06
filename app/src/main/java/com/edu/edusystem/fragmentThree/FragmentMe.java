@@ -52,8 +52,11 @@ public class FragmentMe extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        String user = data.getStringExtra("user");
-        me_logtv.setText(user);
+        if(resultCode == 1 && requestCode == 1){
+            String user = data.getStringExtra("user");
+            me_logtv.setText(user);
+        }
+
     }
 
     @Override

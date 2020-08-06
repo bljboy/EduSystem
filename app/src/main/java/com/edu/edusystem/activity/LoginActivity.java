@@ -429,8 +429,8 @@ public class LoginActivity extends AppCompatActivity {
                                 public void run() {
 
                                     //保存QQ登录用户信息到用户表
-                                    String sql = "insert into user_table(username,sex,age,qq_openid,favorite_teacher) values (?,?,?,?,?)";
-                                    Object[] objects = new Object[]{nickname, sex, age, openID, "{\"data\":[]}"};
+                                    String sql = "insert into user_table(username,sex,age,qq_openid,favorite_teacher,favorite_course) values (?,?,?,?,?,?)";
+                                    Object[] objects = new Object[]{nickname, sex, age, openID, "{\"data\":[]}","{\"data\":[]}"};
                                     DBHelper.Update(sql,objects);
 
                                 }

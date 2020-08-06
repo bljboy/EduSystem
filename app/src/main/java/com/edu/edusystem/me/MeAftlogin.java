@@ -84,8 +84,8 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
                 //finish();
                 {
                     Intent intent = getIntent();
-                    //intent.putExtra("user", name);
-                    setResult(0, intent);
+                    intent.putExtra("user", name);
+                    setResult(1, intent);
                     finish();
                 } else {
                     showdialog();
@@ -129,12 +129,11 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
                         String sql = "";
                         String id = "";
                         if (type.equals("1")) {
-                            sql = "update user_table set username=? sex=? age=? where phone=?";
+                            sql = "update user_table set username=?,sex=?,age=? where phone=?";
                             id = preferences.getString("phone", "");
                             editor.putString("phone", id);
-                        }
-                        if (type.equals("2")) {
-                            sql = "update user_table set username=? sex=? age=? where qq_opendid=?";
+                        }else if (type.equals("2")) {
+                            sql = "update user_table set username=?,sex=?,age=? where qq_openid=?";
                             id = preferences.getString("openId", "");
                             editor.putString("openId", id);
                         }
@@ -156,8 +155,10 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
                 editor.clear();
                 editor.apply();
                 Intent it = new Intent(MeAftlogin.this, LoginActivity.class);
+                // 清空之前所有activity
+                it.setFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_NEW_TASK);
                 startActivity(it);
-                finish();
+                //finish();
                 break;
         }
 
@@ -170,10 +171,15 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
             name = preferences.getString("user", "");
             sex = preferences.getString("sex", "");
             age = preferences.getString("age", "");
-            if (name.equals(aft_user.getText().toString()) && sex.equals(aft_sex.getText().toString()) && age.equals(aft_age.getText().toString()))
+            if (name.equals(aft_user.getText().toString()) && sex.equals(aft_sex.getText().toString()) && age.equals(aft_age.getText().toString())){
+                Intent it = getIntent();
+                it.putExtra("user", name);
+                setResult(1, it);
                 finish();
-            else
+            }else{
                 showdialog();
+            }
+
         }
         return false;
     }

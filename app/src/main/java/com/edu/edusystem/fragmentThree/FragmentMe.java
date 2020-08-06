@@ -84,17 +84,18 @@ public class FragmentMe extends Fragment {
         preferences = getActivity().getSharedPreferences("userInfo", Activity.MODE_PRIVATE);
         String type, figureurl_qq, username;
         type = preferences.getString("type", "");
-
+        Log.i("type>>>>>>>>>",type);
         //加载图片url到ImageView
         if (type.equals("2")) {
             figureurl_qq = preferences.getString("figureurl_qq", "");
             Log.i("figureurl_qq>>>>>","figureurl_qq"+figureurl_qq);
             Picasso.with(getContext()).load(figureurl_qq).into(me_img);
             username = preferences.getString("user", "");
+            Log.i("username>>>>>>>>>",username);
             me_logtv.setText(username);
-        }
-        if (type.equals("1")) {
+        }else if (type.equals("1")) {
             username = preferences.getString("user", "");
+            Log.i("username>>>>>>>>>",username);
             me_logtv.setText(username);
         }
         //个人信息

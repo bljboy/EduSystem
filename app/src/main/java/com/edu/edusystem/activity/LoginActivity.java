@@ -2,6 +2,7 @@ package com.edu.edusystem.activity;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
@@ -24,6 +25,7 @@ import android.view.Window;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -68,12 +70,16 @@ public class LoginActivity extends AppCompatActivity {
     private ImageView log_qq_login; // QQ登录按钮
     private CheckBox log_agree_chBox; // 我同意复选框
     private TextView log_agreement; // 用户协议
+    private ProgressBar login_progressBar;
+    private ConstraintLayout login_ConstraintLayout;
 
     private String favorite_teacher_json;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == Constants.REQUEST_LOGIN) {
+            login_progressBar.setVisibility(View.VISIBLE);
+            //login_ConstraintLayout.setBackgroundColor(Color.GRAY);
             //QQ登录回调
             Tencent.onActivityResultData(requestCode, resultCode, data, mIuiListener);
         }
@@ -161,7 +167,8 @@ public class LoginActivity extends AppCompatActivity {
         log_qq_login = findViewById(R.id.log_qq_login);
         log_agree_chBox = findViewById(R.id.log_agree_chBox);
         log_agreement = findViewById(R.id.log_agreement);
-
+        login_progressBar = findViewById(R.id.login_progressBar);
+        login_ConstraintLayout = findViewById(R.id.login_ConstraintLayout);
         // QQ登录实例
         mTencent = Tencent.createInstance(APP_ID, LoginActivity.this.getApplicationContext());
 
@@ -298,6 +305,7 @@ public class LoginActivity extends AppCompatActivity {
                 }
                 String code = log_et_auth_code.getText().toString();
                 SMSSDK.submitVerificationCode("86", phone, code); //提交短信验证码，在监听中返回
+                login_progressBar.setVisibility(View.VISIBLE);
             }
         });
 
@@ -451,14 +459,21 @@ public class LoginActivity extends AppCompatActivity {
                                         editor.putString("figureurl_qq", figureurl_qq_2); // QQ头像
                                     }
                                     editor.apply();
+
+                                    runOnUiThread(new Runnable() {
+                                        @Override
+                                        public void run() {
+                                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                            startActivity(intent);
+                                            mTencent.logout(LoginActivity.this);
+                                            LoginActivity.this.finish();
+                                        }
+                                    });
                                 }
                             }.start();
 
 
-                            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                            startActivity(intent);
-                            mTencent.logout(LoginActivity.this);
-                            LoginActivity.this.finish();
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }

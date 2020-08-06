@@ -27,8 +27,8 @@ public class stu_community_details extends AppCompatActivity {
         Intent intent=getIntent();
         String  serialnumber=intent.getStringExtra("serialnumber");
 
-        String[] title= stu_data.title;
-        String[] content= stu_data.content;
+        String[] title= stu_data.community_title;
+        String[] content= stu_data.community_content;
         tv.setText(title[Integer.parseInt(serialnumber)]+"\n"+content[Integer.parseInt(serialnumber)]);
         tv.setMovementMethod(ScrollingMovementMethod.getInstance());//内容文字可滑动
 

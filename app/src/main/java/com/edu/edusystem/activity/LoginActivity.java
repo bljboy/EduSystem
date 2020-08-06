@@ -31,6 +31,7 @@ import android.widget.Toast;
 
 import com.edu.edusystem.MainActivity;
 import com.edu.edusystem.R;
+import com.edu.edusystem.me.Mepriage;
 import com.edu.edusystem.tools.DBHelper;
 import com.tencent.connect.UserInfo;
 import com.tencent.connect.auth.QQToken;
@@ -323,6 +324,8 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // 跳转到用户协议页面
+                Intent intent = new Intent(LoginActivity.this, Mepriage.class);
+                startActivity(intent);
 
             }
         });
@@ -631,6 +634,7 @@ public class LoginActivity extends AppCompatActivity {
                     editor.putBoolean("isFrist", false);
                     editor.apply();
                     dialog.cancel();
+                    log_agree_chBox.setChecked(true);
                 }
             });
         } else {

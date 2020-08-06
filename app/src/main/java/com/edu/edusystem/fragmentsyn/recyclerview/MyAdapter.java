@@ -134,23 +134,23 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHoldler> {
                 onItemClickListener.onClick(position);
                 if (position == 0) {
                     if (!aBoolean1) {
-                        aBoolean1 = false;
+                        aBoolean1 = true;
                         holder.syn_selected_love_item.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
                         jsonadd(items.getTitle(), user);
                     } else {
                         //not love
-                        aBoolean1 = true;
+                        aBoolean1 = false;
                         holder.syn_selected_love_item.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
                         jsonremove(items.getTitle(), user);
                     }
                 } else if (position == 1) {
                     if (!aBoolean2) {
-                        aBoolean2 = false;
+                        aBoolean2 = true;
                         holder.syn_selected_love_item.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
                         jsonadd(items.getTitle(), user);
                     } else {
                         //not love
-                        aBoolean2 = true;
+                        aBoolean2 = false;
                         holder.syn_selected_love_item.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
                         jsonremove(items.getTitle(), user);
 
@@ -158,13 +158,13 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHoldler> {
 
                 } else if (position == 2) {
                     if (!aBoolean3) {
-                        aBoolean3 = false;
+                        aBoolean3 = true;
                         holder.syn_selected_love_item.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
                         jsonadd(items.getTitle(), user);
 
                     } else {
                         //not love
-                        aBoolean3 = true;
+                        aBoolean3 = false;
                         holder.syn_selected_love_item.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
                         jsonremove(items.getTitle(), user);
 
@@ -173,25 +173,25 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyHoldler> {
 
                 } else if (position == 3) {
                     if (!aBoolean4) {
-                        aBoolean4 = false;
+                        aBoolean4 = true;
                         holder.syn_selected_love_item.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
                         jsonadd(items.getTitle(), user);
                     } else {
                         //not love
-                        aBoolean4 = true;
+                        aBoolean4 = false;
                         holder.syn_selected_love_item.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
                         jsonremove(items.getTitle(), user);
                     }
 
                 } else {
                     if (!aBoolean5) {
-                        aBoolean5 = false;
+                        aBoolean5 = true;
                         holder.syn_selected_love_item.setBackgroundResource(R.drawable.ic_baseline_favorite_24);
                         jsonadd(items.getTitle(), user);
 
                     } else {
                         //not love
-                        aBoolean5 = true;
+                        aBoolean5 = false;
                         holder.syn_selected_love_item.setBackgroundResource(R.drawable.ic_baseline_favorite_border_24);
                         jsonremove(items.getTitle(), user);
                     }

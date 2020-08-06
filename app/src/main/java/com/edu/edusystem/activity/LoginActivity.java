@@ -79,6 +79,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == Constants.REQUEST_LOGIN) {
             login_progressBar.setVisibility(View.VISIBLE);
+            log_loginBtn.setVisibility(View.INVISIBLE);
             //login_ConstraintLayout.setBackgroundColor(Color.GRAY);
             //QQ登录回调
             Tencent.onActivityResultData(requestCode, resultCode, data, mIuiListener);
@@ -105,6 +106,16 @@ public class LoginActivity extends AppCompatActivity {
         editor.putString("user", phone);// 手机号
         editor.putString("favorite_teacher", favorite_teacher_json); // 用户喜欢的老师json格式数据
         editor.apply();
+
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+                LoginActivity.this.finish();
+            }
+        });
+
 
 
     }
@@ -188,17 +199,15 @@ public class LoginActivity extends AppCompatActivity {
                                 //Toast.makeText(LoginActivity.this, "验证成功", Toast.LENGTH_SHORT).show();
 
                                 //保存用户输入的手机号到用户表
-                                String sql = "insert into user_table(phone,favorite_teacher) values (?,?)";
-                                Object[] objects = new Object[]{phone, "{\"data\":[]}"};
+                                String sql = "insert into user_table(phone,favorite_teacher,favorite_course) values (?,?,?)";
+                                Object[] objects = new Object[]{phone, "{\"data\":[]}","{\"data\":[]}"};
                                 executeSQL(sql, objects);
 
 
 //
 
 
-                                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                startActivity(intent);
-                                LoginActivity.this.finish();
+
                             }
                         });
 
@@ -507,7 +516,8 @@ public class LoginActivity extends AppCompatActivity {
         @Override
 
         public void onError(UiError uiError) {
-
+            login_progressBar.setVisibility(View.INVISIBLE);
+            log_loginBtn.setVisibility(View.VISIBLE);
             Toast.makeText(LoginActivity.this, "授权失败", Toast.LENGTH_SHORT).show();
 
         }
@@ -515,7 +525,8 @@ public class LoginActivity extends AppCompatActivity {
         @Override
 
         public void onCancel() {
-
+            login_progressBar.setVisibility(View.INVISIBLE);
+            log_loginBtn.setVisibility(View.VISIBLE);
             Toast.makeText(LoginActivity.this, "授权取消", Toast.LENGTH_SHORT).show();
 
         }

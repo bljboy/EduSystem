@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">EduSystem</string>
+    <string name="app_name">智学考</string>
     <string name="bottomnavigationview_menulist_homepage">首页</string>
     <string name="bottomnavigationview_menulist_study">学习</string>
     <string name="bottomnavigationview_menulist_me">我</string>

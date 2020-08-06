@@ -13,12 +13,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".fragmentClass.CourseActivity"></activity>
+        <activity android:name=".activity.AnswerQuestionsActivity"></activity>
+        <activity android:name=".fragmentClass.CourseActivity" />
         <activity android:name=".activity.Agreement" />
         <activity android:name=".activity.Privacy" />
         <activity android:name=".MainActivity" />
         <activity android:name=".teacherLecture.FragmentTeacherLecture" />
-        <activity android:name=".fragmentClass.ArtsActivity" />
         <activity
             android:name="com.tencent.tauth.AuthActivity"
             android:launchMode="singleTask"

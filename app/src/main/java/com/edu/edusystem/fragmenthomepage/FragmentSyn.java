@@ -14,6 +14,7 @@ import android.view.accessibility.AccessibilityManager;
 import android.widget.Toast;
 
 import com.edu.edusystem.R;
+import com.edu.edusystem.activity.AnswerQuestionsActivity;
 import com.edu.edusystem.teacherLecture.FragmentTeacherLecture;
 import com.google.android.material.card.MaterialCardView;
 
@@ -66,6 +67,8 @@ public class FragmentSyn extends Fragment implements SwipeRefreshLayout.OnRefres
         syn_answer_questions.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                startActivity(new Intent(getContext(), AnswerQuestionsActivity.class));
+
 
             }
         });

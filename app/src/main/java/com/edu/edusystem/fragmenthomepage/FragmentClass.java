@@ -14,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.edu.edusystem.R;
-import com.edu.edusystem.fragmentClass.ArtsActivity;
 import com.edu.edusystem.fragmentClass.CourseActivity;
 import com.google.android.material.card.MaterialCardView;
 

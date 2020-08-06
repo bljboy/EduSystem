@@ -17,6 +17,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.edu.edusystem.R;
+import com.edu.edusystem.fragmentsyn.SynSelectedCourseFragmentJump;
 import com.edu.edusystem.teacherLecture.FragmentTeacherLecture;
 import com.edu.edusystem.tools.CircleImageView;
 import com.edu.edusystem.me.MeAftlogin;
@@ -107,7 +108,8 @@ public class FragmentMe extends Fragment {
         me_favorite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getActivity(),"功能未开发",Toast.LENGTH_SHORT).show();
+                Intent it=new Intent(getActivity(), SynSelectedCourseFragmentJump.class);
+                startActivity(it);
             }
         });
 

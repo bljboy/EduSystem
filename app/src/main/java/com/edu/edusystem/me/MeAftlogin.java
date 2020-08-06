@@ -22,6 +22,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import com.edu.edusystem.R;
+import com.edu.edusystem.activity.LoginActivity;
 import com.edu.edusystem.tools.DBHelper;
 
 public class MeAftlogin extends AppCompatActivity implements View.OnClickListener {
@@ -148,6 +149,9 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
             case R.id.me_aft_quit:
                 editor.clear();
                 editor.apply();
+                Intent it =new Intent(MeAftlogin.this, LoginActivity.class);
+                startActivity(it);
+                finish();
                 break;
         }
 
@@ -221,9 +225,7 @@ public class MeAftlogin extends AppCompatActivity implements View.OnClickListene
                             editor.putString("age",aft_age.getText().toString());
                             editor.apply();
 
-//                        else
-//                            Toast.makeText(MeAftlogin.this,"Error",Toast.LENGTH_SHORT).show();使用toast报错
-//                        由于type不可能为空这个bug不急于解决
+
 
                     }
                 }).start();

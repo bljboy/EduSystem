@@ -14,12 +14,15 @@
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
         <activity android:name=".MainActivity" />
-        <activity android:name=".fragmentClass.FragmentArts" />
         <activity android:name=".fragmentsyn.SynSelectedCourseFragmentJump" />
         <activity android:name=".teacherLecture.FragmentTeacherLecture" />
         <activity android:name=".me.MeAftlogin" />
         <activity android:name=".me.Mefeedback" />
         <activity android:name=".me.Mepriage" />
+        <!--Yao -->
+        <activity android:name=".activity.AnswerQuestionsActivity" />
+        <activity android:name=".fragmentClass.CourseActivity" />
+        <!--Yao -->
         <!---Pengcl -->
         <activity android:name=".fragment_study.stu_community" />
         <activity android:name=".fragment_study.stu_community_details" />

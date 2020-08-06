@@ -48,7 +48,6 @@ import java.util.List;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 
-
 public class LoginActivity extends AppCompatActivity {
 
     //QQ登录功能
@@ -97,8 +96,8 @@ public class LoginActivity extends AppCompatActivity {
         SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sp.edit();
         editor.putString("type", "1"); // 1是手机号登录
-        editor.putString("user", phone);
-        editor.putString("favorite_teacher", favorite_teacher_json);
+        editor.putString("user", phone);// 手机号
+        editor.putString("favorite_teacher", favorite_teacher_json); // 用户喜欢的老师json格式数据
         editor.apply();
 
 
@@ -182,8 +181,8 @@ public class LoginActivity extends AppCompatActivity {
                                 //Toast.makeText(LoginActivity.this, "验证成功", Toast.LENGTH_SHORT).show();
 
                                 //保存用户输入的手机号到用户表
-                                String sql = "insert into user_table(phone,favorite_teacher,favorite_course) values (?,?,?)";
-                                Object[] objects = new Object[]{phone, "{\"data\":[]}","{\"data\":[]}"};
+                                String sql = "insert into user_table(phone,favorite_teacher) values (?,?)";
+                                Object[] objects = new Object[]{phone, "{\"data\":[]}"};
                                 executeSQL(sql, objects);
 
 
@@ -413,8 +412,8 @@ public class LoginActivity extends AppCompatActivity {
                                 public void run() {
 
                                     //保存QQ登录用户信息到用户表
-                                    String sql = "insert into user_table(username,sex,age,qq_openid,favorite_teacher,favorite_course) values (?,?,?,?,?,?)";
-                                    Object[] objects = new Object[]{nickname, sex, age, openID, "{\"data\":[]}","{\"data\":[]}"};
+                                    String sql = "insert into user_table(username,sex,age,qq_openid,favorite_teacher) values (?,?,?,?,?)";
+                                    Object[] objects = new Object[]{nickname, sex, age, openID, "{\"data\":[]}"};
                                     DBHelper.Update(sql,objects);
 
                                 }
@@ -435,21 +434,21 @@ public class LoginActivity extends AppCompatActivity {
                                     for (HashMap<String, Object> map : list) {
                                         favorite_teacher_json = (String) map.get("favorite_teacher");
                                     }
-
-//                                    Log.i("favorite_teacher>>>>>>>>>>", favorite_teacher_json);
+                                    
+                                    Log.i("favorite_teacher>>>>>>>>>>", favorite_teacher_json);
 
                                     SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
                                     SharedPreferences.Editor editor = sp.edit();
                                     editor.putString("type", "2");// 2是QQ登录
-                                    editor.putString("openId", openID);// id
-                                    editor.putString("user", nickname); // 昵称
+                                    editor.putString("openId", openID);// QQ_openid
+                                    editor.putString("user", nickname); // QQ昵称
                                     editor.putString("sex", sex); //性别
                                     editor.putString("age", age); //年龄
-                                    editor.putString("favorite_teacher", favorite_teacher_json);
+                                    editor.putString("favorite_teacher", favorite_teacher_json); // 用户喜欢的老师json数据
                                     if (figureurl_qq_2.equals("") || figureurl_qq_2 == null) {
-                                        editor.putString("figureurl_qq", figureurl_qq_1);
+                                        editor.putString("figureurl_qq", figureurl_qq_1); // QQ头像
                                     } else {
-                                        editor.putString("figureurl_qq", figureurl_qq_2);
+                                        editor.putString("figureurl_qq", figureurl_qq_2); // QQ头像
                                     }
                                     editor.apply();
                                 }

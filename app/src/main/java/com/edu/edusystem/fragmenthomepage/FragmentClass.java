@@ -7,19 +7,19 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
 import com.edu.edusystem.R;
-import com.edu.edusystem.fragmentClass.FragmentArts;
+import com.edu.edusystem.fragmentClass.CourseActivity;
 import com.google.android.material.card.MaterialCardView;
 
 
-//
-public class FragmentClass extends Fragment implements View.OnClickListener,SwipeRefreshLayout.OnRefreshListener{
-//    @Override
+public class FragmentClass extends Fragment implements View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
+    //    @Override
 //    public void onCreate(Bundle savedInstanceState) {
 //        super.onCreate(savedInstanceState);
 //    }
@@ -34,6 +34,7 @@ public class FragmentClass extends Fragment implements View.OnClickListener,Swip
     private MaterialCardView class_politics; // 政治
     private MaterialCardView class_geography; // 地理
     private SwipeRefreshLayout class_SwipeRefreshLayout;
+    private final String TAG = "FragmentClass";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -44,6 +45,7 @@ public class FragmentClass extends Fragment implements View.OnClickListener,Swip
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
+        // 控件绑定
         initView();
 
         //事件绑定
@@ -53,40 +55,69 @@ public class FragmentClass extends Fragment implements View.OnClickListener,Swip
 
     @Override
     public void onClick(View view) {
-        int id = view.getId();
-        switch (id){
-            case R.id.teacher_card1: // 艺考
-                //Toast.makeText(getContext(),"艺考",Toast.LENGTH_LONG).show();
-                Intent intent = new Intent(getContext(),FragmentArts.class);
-                startActivity(intent);
 
+        int id = view.getId();
+        switch (id) {
+            case R.id.teacher_card1: // 艺考 arts
+                Log.i(TAG, "艺考");
+                startActivity(new Intent(getContext(), CourseActivity.class)
+                        .putExtra("course", "file:///android_asset/arts.html")
+                        .putExtra("name", "艺考"));
                 break;
-            case R.id.teacher_card2: // 语文
-                Toast.makeText(getContext(),"语文",Toast.LENGTH_LONG).show();
+            case R.id.teacher_card2: // 语文 china
+                //Toast.makeText(getContext(),"语文",Toast.LENGTH_LONG).show();
+                Log.i(TAG, "语文");
+                startActivity(new Intent(getContext(), CourseActivity.class)
+                        .putExtra("course", "file:///android_asset/china.html")
+                        .putExtra("name", "语文"));
                 break;
-            case R.id.teacher_card3: // 数学
-                Toast.makeText(getContext(),"数学",Toast.LENGTH_LONG).show();
+            case R.id.teacher_card3: // 数学 math
+                Log.i(TAG, "数学");
+                startActivity(new Intent(getContext(), CourseActivity.class)
+                        .putExtra("course", "file:///android_asset/math.html")
+                        .putExtra("name", "数学"));
                 break;
-            case R.id.teacher_card4: // 英语
-                Toast.makeText(getContext(),"英语",Toast.LENGTH_LONG).show();
+            case R.id.teacher_card4: // 英语 english
+                Log.i(TAG, "英语");
+                startActivity(new Intent(getContext(), CourseActivity.class)
+                        .putExtra("course", "file:///android_asset/english.html")
+                        .putExtra("name", "英语"));
                 break;
-            case R.id.teacher_card5: // 物理
-                Toast.makeText(getContext(),"物理",Toast.LENGTH_LONG).show();
+            case R.id.teacher_card5: // 物理 physics
+                Log.i(TAG, "物理");
+                startActivity(new Intent(getContext(), CourseActivity.class)
+                        .putExtra("course", "file:///android_asset/physics.html")
+                        .putExtra("name", "物理"));
                 break;
-            case R.id.teacher_card6: // 化学
-                Toast.makeText(getContext(),"化学",Toast.LENGTH_LONG).show();
+            case R.id.teacher_card6: // 化学 chemistry
+                Log.i(TAG, "化学");
+                startActivity(new Intent(getContext(), CourseActivity.class)
+                        .putExtra("course", "file:///android_asset/chemistry.html")
+                        .putExtra("name", "化学"));
                 break;
-            case R.id.teacher_card7: // 生物
-                Toast.makeText(getContext(),"生物",Toast.LENGTH_LONG).show();
+            case R.id.teacher_card7: // 生物 biology
+                Log.i(TAG, "生物");
+                startActivity(new Intent(getContext(), CourseActivity.class)
+                        .putExtra("course", "file:///android_asset/biology.html")
+                        .putExtra("name", "生物"));
                 break;
-            case R.id.teacher_card8: // 历史
-                Toast.makeText(getContext(),"历史",Toast.LENGTH_LONG).show();
+            case R.id.teacher_card8: // 历史 history
+                Log.i(TAG, "历史");
+                startActivity(new Intent(getContext(), CourseActivity.class)
+                        .putExtra("course", "file:///android_asset/history.html")
+                        .putExtra("name", "历史"));
                 break;
-            case R.id.teacher_card9: // 政治
-                Toast.makeText(getContext(),"政治",Toast.LENGTH_LONG).show();
+            case R.id.teacher_card9: // 政治 politics
+                Log.i(TAG, "政治");
+                startActivity(new Intent(getContext(), CourseActivity.class)
+                        .putExtra("course", "file:///android_asset/politics.html")
+                        .putExtra("name", "政治"));
                 break;
-            case R.id.teacher_card10: // 地理
-                Toast.makeText(getContext(),"地理",Toast.LENGTH_LONG).show();
+            case R.id.teacher_card10: // 地理 geography
+                Log.i(TAG, "地理");
+                startActivity(new Intent(getContext(), CourseActivity.class)
+                        .putExtra("course", "file:///android_asset/geography.html")
+                        .putExtra("name", "地理"));
                 break;
         }
     }
@@ -94,7 +125,7 @@ public class FragmentClass extends Fragment implements View.OnClickListener,Swip
     /**
      * 绑定卡片id
      */
-    private void initView(){
+    private void initView() {
         class_arts_exam = getActivity().findViewById(R.id.teacher_card1);
         class_china = getActivity().findViewById(R.id.teacher_card2);
         class_math = getActivity().findViewById(R.id.teacher_card3);
@@ -112,7 +143,7 @@ public class FragmentClass extends Fragment implements View.OnClickListener,Swip
     /**
      * 对卡片绑定单击监听事件
      */
-    private void initListener(){
+    private void initListener() {
         class_arts_exam.setOnClickListener(this);
         class_china.setOnClickListener(this);
         class_math.setOnClickListener(this);

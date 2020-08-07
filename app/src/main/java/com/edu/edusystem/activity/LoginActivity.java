@@ -29,10 +29,13 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.edu.edusystem.Agreement;
 import com.edu.edusystem.MainActivity;
+import com.edu.edusystem.Privacy;
 import com.edu.edusystem.R;
 import com.edu.edusystem.me.Mepriage;
 import com.edu.edusystem.tools.DBHelper;
+import com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException;
 import com.tencent.connect.UserInfo;
 import com.tencent.connect.auth.QQToken;
 import com.tencent.connect.common.Constants;
@@ -43,6 +46,8 @@ import com.tencent.tauth.UiError;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.sql.SQLClientInfoException;
+import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
@@ -118,7 +123,6 @@ public class LoginActivity extends AppCompatActivity {
         });
 
 
-
     }
 
     private void executeSQL(final String sql, final Object[] objects) {
@@ -127,15 +131,26 @@ public class LoginActivity extends AppCompatActivity {
             public void run() {
                 super.run();
                 if (objects == null) {
-                    DBHelper.Update(sql, null);
+                    if (DBHelper.Update(sql, null)) {
+                        Log.i("XXXXXXXXXXXXXX", "插入成功");
+                    } else {
+                        Log.i("XXXXXXXXXXXXXX", "插入失败了");
+                    }
                 } else {
-                    DBHelper.Update(sql, objects);
+
+                    if (DBHelper.Update(sql, objects)) {
+                        Log.i("XXXXXXXXXXXXXX", "插入成功");
+                    } else {
+                        Log.i("XXXXXXXXXXXXXX", "插入失败了");
+                    }
+
+
                 }
 
             }
         }.start();
 
-        new Thread(){
+        new Thread() {
             @Override
             public void run() {
                 super.run();
@@ -157,11 +172,11 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        SharedPreferences sharedPreferences = getSharedPreferences("userInfo",Context.MODE_PRIVATE);
-        String type = sharedPreferences.getString("type","");
-        if(!type.equals("")){
-            Log.i("LoginActivity>>>>>>>>","本地已保存过用户信息");
-            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+        SharedPreferences sharedPreferences = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
+        String type = sharedPreferences.getString("type", "");
+        if (!type.equals("")) {
+            Log.i("LoginActivity>>>>>>>>", "本地已保存过用户信息");
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
             this.finish();
         }
@@ -201,12 +216,11 @@ public class LoginActivity extends AppCompatActivity {
 
                                 //保存用户输入的手机号到用户表
                                 String sql = "insert into user_table(phone,favorite_teacher,favorite_course) values (?,?,?)";
-                                Object[] objects = new Object[]{phone, "{\"data\":[]}","{\"data\":[]}"};
+                                Object[] objects = new Object[]{phone, "{\"data\":[]}", "{\"data\":[]}"};
                                 executeSQL(sql, objects);
 
 
 //
-
 
 
                             }
@@ -433,13 +447,17 @@ public class LoginActivity extends AppCompatActivity {
 
                                     //保存QQ登录用户信息到用户表
                                     String sql = "insert into user_table(username,sex,age,qq_openid,favorite_teacher,favorite_course) values (?,?,?,?,?,?)";
-                                    Object[] objects = new Object[]{nickname, sex, age, openID, "{\"data\":[]}","{\"data\":[]}"};
-                                    DBHelper.Update(sql,objects);
+                                    Object[] objects = new Object[]{nickname, sex, age, openID, "{\"data\":[]}", "{\"data\":[]}"};
+                                    if (DBHelper.Update(sql, objects)) {
+                                        Log.i("XXXXXXXXXXXXXX", "插入成功");
+                                    }else{
+                                        Log.i("XXXXXXXXXXXXXX", "插入失败了");
+                                    }
 
                                 }
                             }.start();
 
-                            new Thread(){
+                            new Thread() {
                                 @Override
                                 public void run() {
                                     super.run();
@@ -454,7 +472,7 @@ public class LoginActivity extends AppCompatActivity {
                                     for (HashMap<String, Object> map : list) {
                                         favorite_teacher_json = (String) map.get("favorite_teacher");
                                     }
-                                    
+
                                     Log.i("favorite_teacher>>>>>>>>>>", favorite_teacher_json);
 
                                     SharedPreferences sp = getSharedPreferences("userInfo", Context.MODE_PRIVATE);
@@ -483,7 +501,6 @@ public class LoginActivity extends AppCompatActivity {
                                     });
                                 }
                             }.start();
-
 
 
                         } catch (JSONException e) {
@@ -579,7 +596,7 @@ public class LoginActivity extends AppCompatActivity {
             ClickableSpan clickableSpanpvy = new ClickableSpan() {
                 @Override
                 public void onClick(View view) {
-                    Intent intent = new Intent(LoginActivity.this,Privacy.class);
+                    Intent intent = new Intent(LoginActivity.this, Privacy.class);
                     startActivity(intent);
                 }
 
@@ -599,7 +616,7 @@ public class LoginActivity extends AppCompatActivity {
             ClickableSpan clickableSpanpcy = new ClickableSpan() {
                 @Override
                 public void onClick(@NonNull View view) {
-                    Intent intent = new Intent(LoginActivity.this,Agreement.class);
+                    Intent intent = new Intent(LoginActivity.this, Agreement.class);
                     startActivity(intent);
                 }
 
